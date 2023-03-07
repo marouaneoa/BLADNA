@@ -26,4 +26,4 @@ Our vision is to become the leading destination for authentic Algerian products 
 
 ## Contact Us
 
-If you have any questions about our products or would like to learn more about Algerian culture, please don't hesitate to contact us. You can reach us through our website or by emailing us at info@bladna.com. We look forward to hearing from you!
+If you have any questions about our products or would like to learn more about Algerian culture, please don't hesitate to contact us. You can reach us through our website or by emailing us at bladna.team@gmail.com. We look forward to hearing from you!
