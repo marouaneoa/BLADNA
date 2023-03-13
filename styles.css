@@ -1,0 +1,37 @@
+#logo {
+    position: absolute;
+width: 191px;
+height: 88px;
+left: 67px;
+top: 24px;
+}
+#btn {
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 187.56px;
+    height: 45px;
+    left: 1488.82px;
+    top: 50px;
+    
+    border: 1px solid #5D9C59;
+    border-radius: 10px;
+}
+#marhaba
+{
+    position: absolute;
+width: 312px;
+height: 82px;
+left: 103px;
+top: 224px;
+
+font-family: 'Fugaz One';
+font-style: normal;
+font-weight: 400;
+font-size: 58px;
+line-height: 85px;
+
+color: #000000;
+
+}
