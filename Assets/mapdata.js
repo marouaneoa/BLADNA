@@ -1,35 +1,20 @@
-var simplemaps_countrymap_mapdata={
+var simplemaps_countrymap_mapdata = {
   main_settings: {
-   //General settings
-    width: "300", //'700' or 'responsive'
+    //General settings
+    width: "700", //'700' or 'responsive'
     background_color: "#FFFFFF",
     background_transparent: "yes",
     border_color: "#ffffff",
-    
+
     //State defaults
     state_description: "State description",
-    state_color: "#88A4BC",
-    state_hover_color: "#3B729F",
+    state_color: "#5D9C59",
+    state_hover_color: "#5D9C59",
     state_url: "",
     border_size: 1.5,
     all_states_inactive: "no",
     all_states_zoomable: "yes",
-    
-    //Location defaults
-    location_description: "Location description",
-    location_url: "",
-    location_color: "#FF0067",
-    location_opacity: 0.8,
-    location_hover_opacity: 1,
-    location_size: 25,
-    location_type: "square",
-    location_image_source: "frog.png",
-    location_border_color: "#FFFFFF",
-    location_border: 2,
-    location_hover_border: 2.5,
-    all_locations_inactive: "no",
-    all_locations_hidden: "no",
-    
+
     //Label defaults
     label_color: "#d5ddec",
     label_hover_color: "#d5ddec",
@@ -37,10 +22,10 @@ var simplemaps_countrymap_mapdata={
     label_font: "Arial",
     hide_labels: "no",
     hide_eastern_labels: "no",
-   
+
     //Zoom settings
     zoom: "yes",
-    manual_zoom: "yes",
+    manual_zoom: "no",
     back_image: "no",
     initial_back: "no",
     initial_zoom: "-1",
@@ -50,7 +35,7 @@ var simplemaps_countrymap_mapdata={
     zoom_out_incrementally: "yes",
     zoom_percentage: 0.99,
     zoom_time: 0.5,
-    
+
     //Popup settings
     popup_color: "white",
     popup_opacity: 0.9,
@@ -58,7 +43,7 @@ var simplemaps_countrymap_mapdata={
     popup_corners: 5,
     popup_font: "12px/1.5 Verdana, Arial, Helvetica, sans-serif",
     popup_nocss: "no",
-    
+
     //Advanced settings
     div: "map",
     auto_load: "yes",
@@ -66,180 +51,177 @@ var simplemaps_countrymap_mapdata={
     images_directory: "default",
     fade_time: 0.1,
     link_text: "View Website",
-    popups: "detect",
+    popups: "no",
     state_image_url: "",
     state_image_position: "",
-    location_image_url: ""
+    location_image_url: "",
   },
   state_specific: {
     DZA2143: {
-      name: "Adrar"
+      name: "Adrar",
     },
     DZA2144: {
-      name: "Aïn Témouchent"
+      name: "Aïn Témouchent",
     },
     DZA2145: {
-      name: "Oran"
+      name: "Oran",
     },
     DZA2146: {
-      name: "Sidi Bel Abbès"
+      name: "Sidi Bel Abbès",
     },
     DZA2147: {
-      name: "Tlemcen"
+      name: "Tlemcen",
     },
     DZA2148: {
-      name: "Béchar"
+      name: "Béchar",
     },
     DZA2149: {
-      name: "Naâma"
+      name: "Naâma",
     },
     DZA2150: {
-      name: "Tindouf"
+      name: "Tindouf",
     },
     DZA2163: {
-      name: "Annaba"
+      name: "Annaba",
     },
     DZA2164: {
-      name: "El Tarf"
+      name: "El Tarf",
     },
     DZA2165: {
-      name: "Jijel"
+      name: "Jijel",
     },
     DZA2166: {
-      name: "Skikda"
+      name: "Skikda",
     },
     DZA2188: {
-      name: "Illizi"
+      name: "Illizi",
     },
     DZA2189: {
-      name: "Tamanghasset"
+      name: "Tamanghasset",
     },
     DZA2190: {
-      name: "El Bayadh"
+      name: "El Bayadh",
     },
     DZA2191: {
-      name: "El Oued"
+      name: "El Oued",
     },
     DZA2192: {
-      name: "Ghardaïa"
+      name: "Ghardaïa",
     },
     DZA2193: {
-      name: "Laghouat"
+      name: "Laghouat",
     },
     DZA2194: {
-      name: "Ouargla"
+      name: "Ouargla",
     },
     DZA2195: {
-      name: "Alger"
+      name: "Alger",
     },
     DZA2196: {
-      name: "Boumerdès"
+      name: "Boumerdès",
     },
     DZA2197: {
-      name: "Tizi Ouzou"
+      name: "Tizi Ouzou",
     },
     DZA2198: {
-      name: "Tipaza"
+      name: "Tipaza",
     },
     DZA2199: {
-      name: "Aïn Defla"
+      name: "Aïn Defla",
     },
     DZA2200: {
-      name: "Chlef"
+      name: "Chlef",
     },
     DZA2201: {
-      name: "Mascara"
+      name: "Mascara",
     },
     DZA2202: {
-      name: "Mostaganem"
+      name: "Mostaganem",
     },
     DZA2203: {
-      name: "Relizane"
+      name: "Relizane",
     },
     DZA2204: {
-      name: "Saïda"
+      name: "Saïda",
     },
     DZA2205: {
-      name: "Tiaret"
+      name: "Tiaret",
     },
     DZA2206: {
-      name: "Tissemsilt"
+      name: "Tissemsilt",
     },
     DZA2207: {
-      name: "Bordj Bou Arréridj"
+      name: "Bordj Bou Arréridj",
     },
     DZA2208: {
-      name: "Béjaïa"
+      name: "Béjaïa",
     },
     DZA2209: {
-      name: "Blida"
+      name: "Blida",
     },
     DZA2210: {
-      name: "Bouira"
+      name: "Bouira",
     },
     DZA2211: {
-      name: "Biskra"
+      name: "Biskra",
     },
     DZA2212: {
-      name: "Djelfa"
+      name: "Djelfa",
     },
     DZA2213: {
-      name: "Médéa"
+      name: "Médéa",
     },
     DZA2214: {
-      name: "M'Sila"
+      name: "M'Sila",
     },
     DZA2215: {
-      name: "Sétif"
+      name: "Sétif",
     },
     DZA2216: {
-      name: "Batna"
+      name: "Batna",
     },
     DZA2217: {
-      name: "Constantine"
+      name: "Constantine",
     },
     DZA2218: {
-      name: "Guelma"
+      name: "Guelma",
     },
     DZA2219: {
-      name: "Khenchela"
+      name: "Khenchela",
     },
     DZA2220: {
-      name: "Mila"
+      name: "Mila",
     },
     DZA2221: {
-      name: "Oum el Bouaghi"
+      name: "Oum el Bouaghi",
     },
     DZA2222: {
-      name: "Souk Ahras"
+      name: "Souk Ahras",
     },
     DZA2223: {
-      name: "Tébessa"
-    }
+      name: "Tébessa",
+    },
   },
   locations: {
-    "0": {
+    0: {
       lat: "36.763056",
       lng: "3.050556",
-      name: "Algiers"
-    }
+      name: "Algiers",
+    },
   },
   labels: {},
   legend: {
-    entries: []
+    entries: [],
   },
   regions: {
-    "0": {
-      states: [
-        "DZA2208",
-        "DZA2197",
-        "DZA2210"
-      ],
+    0: {
+      states: ["DZA2208", "DZA2197", "DZA2210"],
       name: "Kabyle",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "1": {
+    1: {
       states: [
         "DZA2143",
         "DZA2150",
@@ -250,50 +232,49 @@ var simplemaps_countrymap_mapdata={
         "DZA2194",
         "DZA2192",
         "DZA2191",
-        "DZA2149"
+        "DZA2149",
       ],
       name: "Sahara",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "2": {
-      states: [
-        "DZA2212",
-        "DZA2193",
-        "DZA2214",
-        "DZA2213"
-      ],
+    2: {
+      states: ["DZA2212", "DZA2193", "DZA2214", "DZA2213"],
       name: "Ouled Naîl",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "3": {
+    3: {
       states: [
         "DZA2195",
         "DZA2196",
         "DZA2209",
         "DZA2198",
         "DZA2199",
-        "DZA2200"
+        "DZA2200",
       ],
       name: "Algerois",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "4": {
+    4: {
       states: [
         "DZA2216",
         "DZA2221",
         "DZA2219",
         "DZA2211",
         "DZA2223",
-        "DZA2222"
+        "DZA2222",
       ],
       name: "Chaouia",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "5": {
+    5: {
       states: [
         "DZA2163",
         "DZA2164",
@@ -303,13 +284,14 @@ var simplemaps_countrymap_mapdata={
         "DZA2217",
         "DZA2220",
         "DZA2215",
-        "DZA2207"
+        "DZA2207",
       ],
       name: "East",
-      color: "5D9C59",
-      hover_color: "2F702B"
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
     },
-    "6": {
+    6: {
       states: [
         "DZA2144",
         "DZA2145",
@@ -320,11 +302,16 @@ var simplemaps_countrymap_mapdata={
         "DZA2203",
         "DZA2204",
         "DZA2205",
-        "DZA2206"
+        "DZA2206",
       ],
       name: "West",
-      color: "5D9C59",
-      hover_color: "2F702B"
-    }
-  }
+      color: "#5D9C59",
+      hover_color: "#2F702B",
+      zoomable: "no",
+    },
+    7: {
+      states: [],
+      zoomable: "no",
+    },
+  },
 };

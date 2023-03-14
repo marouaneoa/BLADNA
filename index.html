@@ -4,30 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link type="stylesheet" href="styles.css" />
-    <link rel="icon" href="pics/bladna.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fugaz One"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Jost"
+      rel="stylesheet"
+    />
     <title>BLADNA | Discover Algeria !</title>
+    <link rel="icon" href="pics/bladna.png" />
     <script type="text/javascript" src="Assets\mapdata.js"></script>
     <script type="text/javascript" src="Assets\countrymap.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <header class="header">
       <nav class="nav__items">
-        <img class="nav__logo" src="pics/logo.png" alt="Bladna Logo" />
+        <img class="nav__logo" src="pics/bladna.png" alt="Bladna Logo" />
 
         <ul class="nav__links">
-          <li class="nav__item"><a href="#">Home</a></li>
+          <li class="nav__item"><a class="active" href="#">Home</a></li>
           <li class="nav__item"><a href="#">Shop</a></li>
           <li class="nav__item"><a href="#">Explore</a></li>
           <li class="nav__item"><a href="#">Contact Us</a></li>
-          <li class="nav__item"><a href="#">Become a Vendor</a></li>
         </ul>
-        <div>Becone Vendor</div>
+        <div class="nav__btns">
+          <div class="nav__btn--1">Become Vendor</div>
+          <div class="nav__btn--2">Sign Up</div>
+        </div>
       </nav>
+
+      <section class="section--1">
+        <div class="sec__testimonials">
+          <h2 class="sec__title">Marhaba !</h2>
+          <p class="sec__testimonials--1">
+            <br />
+            Lorem ipsum dolor sit amet consectetur. Commodo ornare pellentesque
+            purus magna euismod. <br />
+            <br />
+            Sed interdum ut scelerisque lectus dui diam semper massa
+            scelerisque. Elit amet quis at rhoncus aliquet dui pretium ut. In ac
+            ut enim sed ultrices. Lectus mattis consectetur adipiscing non ut
+            sed pharetra.<br />
+            <br />
+            Tristique massa magnis odio amet elit sed ultrices enim. Dolor et
+            vitae vulputate porta integer nibh enim tempus. Amet mi enim arcu
+            urna non.
+          </p>
+          <div class="sec__btn nav__btn--2">Sign Up</div>
+          <div class="sec__btn nav__btn--1">Log In</div>
+        </div>
+        <div class="sec__map" id="map"></div>
+      </section>
     </header>
-    <section>
-      <h2 class="marhaba">Marhaba !</h2>
-      <p>
+
+    <section class="section--2">
+      <h2 class="sec__title">Shop With Us !</h2>
+      <p class="sec__testimonials--1">
         Lorem ipsum dolor sit amet consectetur. Commodo ornare pellentesque
         purus magna euismod. Sed interdum ut scelerisque lectus dui diam semper
         massa scelerisque. Elit amet quis at rhoncus aliquet dui pretium ut. In
@@ -36,7 +71,15 @@
         et vitae vulputate porta integer nibh enim tempus. Amet mi enim arcu
         urna non.
       </p>
-      <div id="map"></div>
+      <p class="sec__testimonials--1">
+        Lorem ipsum dolor sit amet consectetur. Commodo ornare pellentesque
+        purus magna euismod. Sed interdum ut scelerisque lectus dui diam semper
+        massa scelerisque. Elit amet quis at rhoncus aliquet dui pretium ut. In
+        ac ut enim sed ultrices. Lectus mattis consectetur adipiscing non ut sed
+        pharetra. Tristique massa magnis odio amet elit sed ultrices enim. Dolor
+        et vitae vulputate porta integer nibh enim tempus. Amet mi enim arcu
+        urna non.
+      </p>
     </section>
   </body>
 </html>
