@@ -6,7 +6,6 @@ body {
   background-image: url("pics/background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -204,7 +203,6 @@ h2 {
 
 /* SECTION 3 */
 .section--3 {
-  width: 100%;
   margin: 100px;
 }
 .sec__util {
@@ -227,7 +225,7 @@ h2 {
   align-items: center;
   gap: 500px;
 }
-
+/* green version*/
 .sec__rect--main {
   display: flex;
   flex-direction: column;
@@ -235,8 +233,23 @@ h2 {
 
   margin: 60px 50px;
   width: 750px;
-  height: 600px;
+  height: 650px;
   background: #f2faf2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* red version*/
+.sec__rect--main--red {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 60px 50px;
+  width: 750px;
+  height: 650px;
+  background: #fff7f2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   z-index: -1;
@@ -261,6 +274,7 @@ h2 {
   font-weight: 400;
   font-size: 18px;
   line-height: 23px;
+  margin-left: -40px;
 
   color: #000000;
 
@@ -279,35 +293,119 @@ h2 {
 }
 /* RECTANGLES */
 .sec__rect {
-  width: 600px;
-  height: 400px;
-  background-color: #5d9c59;
+  display: flex;
+  gap: 25px;
+  width: 700px;
+  height: 300px;
   z-index: -1;
 }
 .sec__rect--1 {
   width: 250px;
-  height: 400px;
-  background-color: red;
+  height: 300px;
+  background-image: url(pics/bejaia1.png);
+  background-size: cover;
+
   z-index: 2;
 }
-
-.sec__rect--parent {
-  width: auto;
-  height: auto;
+.rec__parent {
   display: flex;
   flex-direction: column;
-  z-index: 100;
-}
-.sec__rect--2 {
-  width: 350px;
-  height: 200px;
-  color: aqua;
-  z-index: 100;
+  width: 450px;
+  height: 300px;
+  gap: 10px;
+  z-index: -1;
 }
 
-.sec__rect--3 {
-  width: 350px;
+.sec__rect_small {
+  width: 450px;
   height: 200px;
-  color: orchid;
-  z-index: 100;
+  z-index: 300;
+}
+
+.sec__rect--2 {
+  background-image: url(pics/bejaia2.png);
+  background-size: cover;
+}
+.sec__rect--3 {
+  background-image: url(pics/bejaia3.jpg);
+  background-size: cover;
+}
+/* PROFILE */
+
+.sec__profiles {
+  width: 700px;
+  display: inline-block;
+  margin-top: 0.9em;
+}
+
+.sec__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.2em;
+}
+
+.sec__profile--circle {
+  height: 50px;
+  width: 50px;
+  background-image: url("pics/avatar.png");
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.sec__profile--txt1 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.sec__profile--txt2 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  margin-left: 20px;
+
+  color: #000000;
+}
+
+/* BAR */
+.sec__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 160px;
+  margin-top: 25px;
+  width: 590px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sec__bar__icon img {
+  max-width: 22px;
+  max-height: 22px;
+}
+
+.sec__bar__icon h5 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 17px;
+
+  color: #000000;
+}
+
+.sec__bar__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
