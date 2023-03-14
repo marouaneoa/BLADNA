@@ -148,3 +148,36 @@ h2 {
   margin-top: 200px;
   width: 100%;
 }
+
+.sec__btn {
+  display: inline-block;
+  width: 300px;
+}
+
+.sec__btn.nav__btn--1 {
+  margin-left: 40px;
+  font-size: 28px;
+}
+
+/*ICONS*/
+.sec__icon--chevron {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  width: 50px;
+  top: 840px;
+
+  animation: drift 2s infinite ease;
+
+  cursor: pointer;
+}
+
+/* ANIMATIONS */
+@keyframes drift {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
