@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Fugaz One"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Jost"
+      rel="stylesheet"
+    />
+    <title>Sign Up</title>
+    <link rel="icon" href="pics/bladna.png" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <section class="split sec__photo" id="photo">
+      <h1 class="sec__txt--1" id="maintxt">
+        Dive Deep Into BLADNA's
+        <span class="txt__overlay" id="subtxt">Culture </span> !
+      </h1>
+    </section>
+    <section class="split sec__sign">
+      <div class="sec__right">
+        <h1 class="sec__txt--2">SIGN UP</h1>
+        <div class="sec__form form--1 " id="form">
+          <label for="mail">E-mail :</label><br />
+          <input
+            type="email"
+            placeholder="abcdef@example.com"
+            id="mail"
+            name="mail"
+          />
+          <br />
+          <label for="password">Password :</label><br />
+          <input
+            type="password"
+            placeholder="********"
+            id="password"
+            name="password"
+          />
+          <br />
+          <label for="passwordc">Confirm Password :</label><br />
+          <input
+            type="password"
+            placeholder="********"
+            id="passwordc"
+            name="password"
+          />
+        </div>
+        <!-- PHASE 2 -->
+        <div class="sec__form form--2 hidden">
+          <div class="sec__form__photo">
+            <img id="sec__photo__container"></img>
+            <br>
+            <label for="image-input" class="form__photo__label">Upload Your Photo</label>
+            <br>
+            <input
+              type="file"
+              name="image"
+              accept="image/png, image/jpeg"
+              id="image-input"
+            />
+          </div>
+          <label for="username">Username :</label><br />
+          <input
+            type="text"
+            placeholder="@example"
+            id="username"
+            name="username"
+          />
+        </div>
+        <div class="sec__btn ">Next</div>
+      </div>
+      <div class="sec__footer">
+        <img class="sec__logo" src="pics/bladna.png" />
+        <h3>
+          Already have an account ? <span class="txt__overlay--1"> Log In</span>
+        </h3>
+      </div>
+
+      <div class="sec__end hidden" >
+        <h1 class="end__txt">COMPLETE</h1>
+        <a class="end__btn" href="../Main Page/index.html">GET STARTED</a>
+
+      </div>
+    </section>
+  </body>
+</html>
