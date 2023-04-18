@@ -21,7 +21,7 @@ class AdminMiddleware
         }
         else 
         {
-        return redirect('/');
+        return redirect('/home')->with('status','You are not allowed to Admin Dashboard');
         }
        
     }

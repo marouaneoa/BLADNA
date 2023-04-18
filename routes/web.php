@@ -30,4 +30,11 @@ Routr::group(['middleware' => ['auth','admin']], function(){
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+
+
+    Route::get('/role-register',[Dashboardcontroller::class,'registered' ]);
+    Route::get('/role.edit/{id}',[Dashboardcontroller::class,'registeredit' ]);
+    Route::put('/role.register.update/{id}',[Dashboardcontroller::class,'registerupdate' ]);
+    Route::delete('/role.delete/{id}',[Dashboardcontroller::class,'registerdelete' ]);
+    
 });

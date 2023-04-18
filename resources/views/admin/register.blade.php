@@ -1,0 +1,64 @@
+@extends('layouts.master')
+
+
+@section('title')
+    Registered Roles | Raji3li
+@endsection
+
+@section('content')
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+              <div class="card-header">
+                 <h4 class="card-title"> Registered Roles</h4>
+                 @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="users" class="table">
+                            <thead class=" text-primary">
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>User Type </th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $row)
+                                <tr>
+                                    <td>{{ $row->name}}</td>
+                                    <td>{{ $row->email}}</td>
+                                    <td>{{ $row->user_type}}</td>
+                                    <td>
+                                        <a href="/role.edit/{{ $row->id }}" class="btn btn-success"> EDIT</a>
+                                    </td>
+                                    <td>
+                                        <form action="/role.delete/{{ $row->id }}" method="post">
+                                            {{csrf_field()}}
+                                            {{method_field('DELETE')}}
+                                            <input type="hidden"name="id" value="{{ $row->id }}">
+                                            <button typr="submit" class="btn btn-danger"> DELETE</a>
+                                        </form>    
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
+
+@section('script')
+<script>
+    let table = new DataTable('#users');
+    </script>
+@endsection
