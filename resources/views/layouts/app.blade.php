@@ -36,17 +36,38 @@
           <li class="nav__item"><a href="#section--3">Explore</a></li>
           <li class="nav__item"><a href="#footer">Contact Us</a></li>
         </ul>
-         @auth
-        {{-- here we will put whatever the user will see if he is logged in --}}
-        <span class="font-bold uppercase">
-          Welcome {{auth()->user()->name}}
-        </span>
-        <div class="nav__btns">
-          <div class="nav__btn--1">Become Vendor</div>
-          @else
-          <a href="auth/register" class="nav__btn--2"> Sign Up </a>
-        </div>
-        @endauth
+        @guest
+           @if (Route::has('login'))
+            
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            
+          @endif
+
+            @if (Route::has('register'))
+            
+               <a href="{{ route('register') }}">{{ __('Register') }}</a>
+              
+              @endif
+             @else
+             <span class="font-bold uppercase">
+                Welcome {{ Auth::user()->name }}
+              </span>
+
+           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+             <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+               </a>
+
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+               @csrf
+              </form>
+              </div>
+            </li>
+            @endguest
+
+       
       </nav>
 
 @yield('main')

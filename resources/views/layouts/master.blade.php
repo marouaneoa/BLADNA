@@ -65,16 +65,16 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="{{'grades'== request()->path()?'active':''}} ">
-            <a href="/grades">
+          <li class="{{'regions'== request()->path()?'active':''}} ">
+            <a href="/regions">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Grades</p>
+              <p>Regions</p>
             </a>
           </li>
-          <li claa="{{'subjects'== request()->path()?'active':''}} ">
-            <a href="/trimesters">
+          <li claa="{{'categories'== request()->path()?'active':''}} ">
+            <a href="/categories">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Trimesters</p>
+              <p>Categories</p>
             </a>
           </li>
           <li claa="{{'subjects'== request()->path()?'active':''}} ">

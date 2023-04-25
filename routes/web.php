@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboardcontroller;
+use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +40,15 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/role.register.update/{id}',[Dashboardcontroller::class,'registerupdate' ]);
     Route::delete('/role.delete/{id}',[Dashboardcontroller::class,'registerdelete' ]);
     
+    Route::get('/regions', [RegionController::class, 'index']);
+    Route::post('/save-region',[RegionController::class, 'store']);
+    Route::get('/regions/{id}', [RegionController::class, 'edit']);
+    Route::put('/regions-update/{id}',[RegionController::class, 'update']);
+    Route::delete('/regions-delete/{id}',[RegionController::class, 'delete']);
+
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/save-categories',[CategoryController::class, 'store']);
+    Route::get('/categories/{id}', [CategoryController::class, 'edit']);
+    Route::put('/categories-update/{id}',[CategoryController::class, 'update']);
+    Route::delete('/categories-delete/{id}',[CategoryController::class, 'delete']);
 });
