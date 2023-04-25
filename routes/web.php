@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboardcontroller;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +22,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-
-Route::get('/auth/register', function () {
-    return view('/auth/register');
-});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth','admin']], function(){
@@ -51,4 +47,14 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('/categories/{id}', [CategoryController::class, 'edit']);
     Route::put('/categories-update/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories-delete/{id}',[CategoryController::class, 'delete']);
+
+    Route::get('/items', [ItemController::class, 'index']);
+    Route::post('/save-item',[ItemController::class, 'store']);
+    Route::get('/items/{id}', [ItemController::class, 'edit']);
+    Route::put('/items-update/{id}',[ItemController::class, 'update']);
+    Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
+
+   
+
+
 });
