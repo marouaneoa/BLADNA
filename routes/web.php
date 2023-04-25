@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Dashboardcontroller;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\Dashboardcontroller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/categories-update/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories-delete/{id}',[CategoryController::class, 'delete']);
 
+
     Route::get('/items', [ItemController::class, 'index']);
     Route::post('/save-item',[ItemController::class, 'store']);
     Route::get('/items/{id}', [ItemController::class, 'edit']);
@@ -55,6 +58,19 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
 
    
+
+
+    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
+    Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{comment}', [CommentsController::class, 'destroy'])->name('comments.destroy');
 
 
 });

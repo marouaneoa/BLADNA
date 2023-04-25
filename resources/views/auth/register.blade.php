@@ -25,7 +25,6 @@
         <span class="txt__overlay" id="subtxt">Culture </span> !
       </h1>
     </section>
-    <div class="card-header">{{ __('Register') }}</div>
     
     <section class="split sec__sign">
     <form method="POST" action="{{ route('register') }}"> 
