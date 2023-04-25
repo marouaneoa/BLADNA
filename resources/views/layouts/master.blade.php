@@ -77,10 +77,10 @@
               <p>Categories</p>
             </a>
           </li>
-          <li claa="{{'subjects'== request()->path()?'active':''}} ">
-            <a href="/subjects">
+          <li claa="{{'items'== request()->path()?'active':''}} ">
+            <a href="/items">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Subjects</p>
+              <p>Products</p>
             </a>
           </li>
         
