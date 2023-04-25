@@ -61,4 +61,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+    Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
+    Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{comment}', [CommentsController::class, 'destroy'])->name('comments.destroy');
+
 });
