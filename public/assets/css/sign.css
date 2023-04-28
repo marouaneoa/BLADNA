@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: "Jost", "Fugaz One";
+}
+
+html {
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    width: 100%;
+
+    /* justify-content: space-between; */
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.body__left {
+    width: 35%;
+    height: 1100px;
+    background-color: #c7e8ca;
+    box-shadow: 12px 4px 6px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.left__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left__back {
+    background: #436d40;
+    height: 5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.last {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__btn {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 43px;
+
+    text-align: center;
+
+    /*  #000000 Black */
+
+    color: #000000;
+    background: #c7e8ca;
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px 60px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.form__btn:hover {
+    background: none;
+    border: solid 2px #c7e8ca;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sec__photo__container {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: lightgray;
+}
+
+.right__form {
+    display: flex;
+    gap: 40px;
+}
+
+.form__social {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.social {
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+}
+
+form input {
+    height: 3.6rem;
+    width: 500px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Jost";
+    font-size: 20px;
+    padding: 10px;
+}
+
+form input:focus {
+    outline-color: #436d40;
+    outline-style: dashed;
+    outline-width: 3px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.left_title {
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 70px;
+    text-align: center;
+
+    color: #436d40;
+    width: 430px;
+}
+
+.form__photo__label {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 35px;
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #5d9c59;
+    border-radius: 10px;
+
+    color: #000000;
+}
+
+.right__form__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+
+    color: #000000;
+}
+
+.left__logo {
+    width: 100px;
+    height: 100px;
+}
+
+.body__right {
+    width: 65%;
+    background-image: url("/pics/back2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.right__title {
+    width: 540px;
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 82px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.right__overlay {
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 82px;
+    text-align: center;
+
+    color: #436d40;
+}
+
+#username {
+    background: #eaeaea;
+}
+
+.right__form__right {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.txt {
+    display: flex;
+    flex-direction: column;
+    gap: 5 px;
+
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    /* identical to box height */
+
+    /* #525252 - Dark Grey 2 */
+
+    color: #525252;
+}
+
+.input--4 {
+    margin-top: 50px;
+}
+
+.social h5 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+}
