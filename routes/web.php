@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboardcontroller;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\VendorController;
 
 /*
@@ -60,20 +61,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
    
 
-
-    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
-
+    
     Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
     Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
     Route::delete('/comments/{comment}', [CommentsController::class, 'destroy'])->name('comments.destroy');
-
-
+    
+    
 });
 // the shop part 
 //showing the shop page 
@@ -100,4 +93,12 @@ Route::get('/posts_part/posts', function () {
 // update the phone number of the vendor 
 Route::post('/home', [VendorController::class, 'store'])->name('users.store');
 
+
+    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/posts/create', [PostController::class, 'create']);
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 

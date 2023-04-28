@@ -16,10 +16,11 @@
 
     <title> @yield('title') </title>
     <link rel="icon" href="{{asset('pics/bladna.png')}}" />
-    
     <script defer src="{{asset('/assets/js/script.js')}}"></script>
     <script src="{{asset('/assets/mapdata.js')}}"></script>
     <script type="text/javascript" src="{{asset('/assets/countrymap.js')}}"></script>
+    
+
    
   </head>
   <body>

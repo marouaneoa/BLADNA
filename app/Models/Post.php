@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'body', '_token'];
 
     public function user()
     {
@@ -16,6 +17,10 @@ class Post extends Model
     public function scopeLatest($query, $limit = 10)
     {
     return $query->orderBy('created_at', 'desc')->limit($limit);
+    }
+    public function pictures()
+    {
+    return $this->hasMany(Picture::class);
     }
 
 }

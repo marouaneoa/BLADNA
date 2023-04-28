@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Picture;
+use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class PostController extends Controller
 {
     public function index()
     {
@@ -27,13 +28,30 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'body' => 'required',
         ]);
-
-        $post = auth()->user()->posts()->create($request->all());
-
+    
+        $post = auth()->user()->posts()->create([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+    
+        if ($request->hasFile('picture')) {
+            foreach ($request->file('picture') as $file) {
+                $filename = $file->getClientOriginalName();
+                $path = $file->move('pics', $filename);
+                $picture = Picture::create([
+                    'path' => 'pics/' . $filename,
+                    'post_id' => $post->id,
+                ]);
+            }
+        }
+    
         return redirect()->route('posts.show', $post);
     }
+    
+
+    
 
     public function edit(Post $post)
     {
