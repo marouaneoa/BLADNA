@@ -38,14 +38,15 @@ class PostController extends Controller
     
         if ($request->hasFile('picture')) {
             foreach ($request->file('picture') as $file) {
-                $filename = $file->getClientOriginalName();
-                $path = $file->move('pics', $filename);
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('public/posts_images', $filename);
                 $picture = Picture::create([
-                    'path' => 'pics/' . $filename,
+                    'path' => basename($path), 
                     'post_id' => $post->id,
                 ]);
             }
         }
+        
     
         return redirect()->route('posts.show', $post);
     }

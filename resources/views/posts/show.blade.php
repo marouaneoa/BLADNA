@@ -22,7 +22,7 @@
                     <div class="row">
                         @foreach($post->pictures as $picture)
                         <div class="col-md-6 mt-2">
-                            <img src="{{ asset($picture->path) }}" alt="post image" class="img-fluid">
+                            <img src="{{ Storage::url('public/posts_images/' . $picture->path) }}" alt="post image" class="img-fluid">
                         </div>
                         @endforeach
                     </div>
