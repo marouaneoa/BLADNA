@@ -24,12 +24,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::group(['middleware' => ['auth','admin']], function(){
-
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
-
+    Route::get('/dashboard',[Dashboardcontroller::class,'user_chart' ]);
+   
 
     Route::get('/role-register',[Dashboardcontroller::class,'registered' ]);
     Route::get('/role.edit/{id}',[Dashboardcontroller::class,'registeredit' ]);

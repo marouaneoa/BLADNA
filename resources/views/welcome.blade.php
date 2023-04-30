@@ -7,6 +7,12 @@
 @section ('main')
       <section class="section--1">
         <div class="sec__testimonials">
+        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
           <h2 class="sec__title" id="main__title">Marhaba !</h2>
           <p class="sec__testimonials--1">
             Algeria has a rich and diverse culture that has been shaped by its
@@ -105,71 +111,8 @@
             <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
         </div>
       </div>
-        <div class="sec__dish">
-          <h3 class="sec__browse">Browse Traditional Dishes:</h3>
-          <div class="itemsDish">
-            <div class="item item1"><img class="product__img" src="https://images.unsplash.com/photo-1594981449006-3bb015dd305a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWxnZXJpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
-            <div class="product__info">
-              <h3 class="product__title">BaQlawa</h3>
-              <h3 class="product__price">1000DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item2"><img class="product__img" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y291c2NvdXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
-            <div class="product__info">
-              <h3 class="product__title">CousCous Viande</h3>
-              <h3 class="product__price">800DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item3"><img class="product__img" src="https://i.pinimg.com/236x/96/37/4b/96374b4e368b422795d888d314818347.jpg">
-            <div class="product__info">
-              <h3 class="product__title">CousCous Poulet</h3>
-              <h3 class="product__price">700DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item4"><img class="product__img" src="https://i.pinimg.com/236x/92/e9/c1/92e9c1c075c6d02b544dc9e2f622e7d7.jpg">
-            <div class="product__info">
-              <h3 class="product__title">Ma7chi</h3>
-              <h3 class="product__price">200DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item5"><img class="product__img" src="https://i.pinimg.com/236x/9c/e7/c9/9ce7c9e8c455c3bf5137b47bae03bcc4.jpg">
-            <div class="product__info">
-              <h3 class="product__title">Kessra</h3>
-              <h3 class="product__price">100DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item6"><img class="product__img" src="https://i.pinimg.com/236x/45/51/ac/4551ac0e8928d52237064477f1791db0.jpg">
-            <div class="product__info">
-              <h3 class="product__title">BerkouKes</h3>
-              <h3 class="product__price">1300DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item7"><img class="product__img" src="https://i.pinimg.com/236x/f3/d4/16/f3d416b2629bcafa5fa7776e66e032a5.jpg">
-            <div class="product__info">
-              <h3 class="product__title">CheKhchouKha</h3>
-              <h3 class="product__price">1200DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item8"><img class="product__img" src="https://i.pinimg.com/236x/32/c0/e5/32c0e5198e909cdd8b5356e95924fb99.jpg">
-            <div class="product__info">
-              <h3 class="product__title">MbarDja</h3>
-              <h3 class="product__price">350DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item9"><img class="product__img" src="https://i.pinimg.com/236x/66/58/c8/6658c83b6cf23e8d4a420c04a9210446.jpg">
-            <div class="product__info">
-              <h3 class="product__title">Aftir</h3>
-              <h3 class="product__price">1600DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-            <div class="item item10"><img class="product__img" src="https://i.pinimg.com/236x/f0/14/14/f014147a343cea34e7791d61fcd15b52.jpg">
-            <div class="product__info">
-              <h3 class="product__title">ZfiTi</h3>
-              <h3 class="product__price">2000DA</h3>
-            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Minus iure eligendi.</p></div>
-          </div>
-        </div>
+      <div class="sec__dish">
+     
           <div class="sec__jewelry">
             <h3 class="sec__browse">Browse Traditional Jewelry:</h3>
             <div class="itemsJewel">
