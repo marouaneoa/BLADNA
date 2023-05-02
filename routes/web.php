@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -9,6 +10,13 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboardcontroller;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VendorController;
+=======
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Dashboardcontroller;
+use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ItemController;
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +36,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+<<<<<<< HEAD
 Route::group(['middleware' => ['auth','admin']], function(){
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
 
+=======
+
+Route::group(['middleware' => ['auth','admin']], function(){
+    Route::get('/dashboard',[Dashboardcontroller::class,'user_chart' ]);
+   
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
 
     Route::get('/role-register',[Dashboardcontroller::class,'registered' ]);
     Route::get('/role.edit/{id}',[Dashboardcontroller::class,'registeredit' ]);
@@ -52,7 +67,10 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/categories-update/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories-delete/{id}',[CategoryController::class, 'delete']);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
     Route::get('/items', [ItemController::class, 'index']);
     Route::post('/save-item',[ItemController::class, 'store']);
     Route::get('/items/{id}', [ItemController::class, 'edit']);
@@ -61,6 +79,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
    
 
+<<<<<<< HEAD
     
     Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
     Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
@@ -102,3 +121,7 @@ Route::post('/home', [VendorController::class, 'store'])->name('users.store');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+=======
+
+});
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350

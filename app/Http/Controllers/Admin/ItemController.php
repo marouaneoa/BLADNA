@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Items;
+use App\Models\Item_images;
 use App\Models\Categories;
 use App\Models\Region;
 use App\Models\User;
@@ -34,6 +35,19 @@ class ItemController extends Controller
         $items->category_id= $request->input('category_id');
         $items->save();
        
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                if ($file->isValid()) {
+                    $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                    $path = $file->storeAs('public/item_images', $filename);
+                    $itemImage = new Item_images;
+                    $itemImage->item_id = $items->id;
+                    $itemImage->image_path = $filename; // Update the image path to use the filename instead of the storage path
+                    $itemImage->save();
+                }
+            }
+        }
+
         return redirect('/items')->with('status', 'Item has been added');
     }
 
