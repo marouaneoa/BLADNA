@@ -22,7 +22,7 @@
       
       <div class="right">
         <div class="right__head">
-          <img class="head__logo" src="/pics/bladna.png" />
+          <a href="/home"><img class="head__logo" src="/pics/bladna.png" /></a>
           <h1>CREATE A POST</h1>
         </div>
         <div class="right__all">
