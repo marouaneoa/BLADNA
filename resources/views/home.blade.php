@@ -23,12 +23,15 @@
             Art, including pottery and weaving, is also an important part of
             Algerian culture.
           </p>
-          <a href="{{asset('register')}} " class="sec__btn nav__btn--2">
-            Sign Up
-          </a>
-          <a href="{{asset('login')}} " class="sec__btn nav__btn--1">
-            Log In
-          </a>
+          @guest
+    <a href="{{asset('register')}} " class="sec__btn nav__btn--2">
+        Sign Up
+    </a>
+    <a href="{{asset('login')}} " class="sec__btn nav__btn--1">
+        Log In
+    </a>
+          @endguest
+
         </div>
         <div class="sec__map" id="map"> </div>
       </section>
@@ -175,7 +178,6 @@
           <div class="sec__jewelry">
             <h3 class="sec__browse">Browse Traditional Jewelry:</h3>
             <div class="itemsJewel">
-<<<<<<< HEAD
               <div class="item item1"><img class="product__img" src="https://images.unsplash.com/photo-1671642883395-0ab89c3ac890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJhYiUyMGpld2Vscnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
             <div class="product__info">
               <h3 class="product__title">Bloody Miss</h3>
@@ -239,20 +241,6 @@
            </div>
       
       <a  href="/shop_part/shopping" class="sec__btn--3 nav__btn--1">See More</a>
-=======
-            @foreach($items as $item)
-             @if($item->category == "jewelry") 
-              <div class="item item1"><img class="product__img" src="https://images.unsplash.com/photo-1671642883395-0ab89c3ac890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJhYiUyMGpld2Vscnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
-            <div class="product__info">
-              <h3 class="product__title">{{$item->name}}</h3>
-              <h3 class="product__price">{{$item->price}}  DA</h3>
-            </div>
-            <p class="product__desc">{{$item->description}}</p></div>
-            @endif
-            @endforeach
-      
-      <div class="sec__btn--3 nav__btn--1">See More</div>
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
     </section>
     <section class="section--3" id="section--3">
       <h2 class="sec__title--3">Explore Our Country !</h2>
@@ -442,11 +430,7 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <a  href="/posts_part/posts" class="sec__btn--3 nav__btn--1">See More</a>
-=======
-      <div class="sec__btn--3 nav__btn--1">See More</div>
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
+      <a  href="/posts" class="sec__btn--3 nav__btn--1">See More</a>
 </section>
 @endsection
 

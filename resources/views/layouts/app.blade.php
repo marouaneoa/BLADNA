@@ -16,25 +16,17 @@
 
     <title> @yield('title') </title>
     <link rel="icon" href="{{asset('pics/bladna.png')}}" />
-<<<<<<< HEAD
-    <script defer src="{{asset('/assets/js/script.js')}}"></script>
-    <script src="{{asset('/assets/mapdata.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/assets/countrymap.js')}}"></script>
-    
-
-=======
     
     <script defer src="{{asset('/assets/js/script.js')}}"></script>
     <script src="{{asset('/assets/mapdata.js')}}"></script>
     <script type="text/javascript" src="{{asset('/assets/countrymap.js')}}"></script>
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
    
   </head>
   <body>
     <header class="header">
       <nav class="nav__items">
         <div class="nav__logo">
-          <img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" />
+          <a href="/home"><img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" /></a>
           <h2 class="nav__txt">بلادنا</h2>
         </div>
 
@@ -45,22 +37,15 @@
           <li class="nav__item"><a href="#footer">Contact Us</a></li>
         </ul>
         @guest
-<<<<<<< HEAD
           <div class="nav__btns">
            @if (Route::has('login'))
             
               <a class="nav__btn--1" href="{{ route('login') }}">{{ __('Log In') }}</a>
-=======
-           @if (Route::has('login'))
-            
-              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             
           @endif
 
             @if (Route::has('register'))
             
-<<<<<<< HEAD
                <a href="{{ route('register') }}"  class="nav__btn--2">{{ __('Sign Up') }}</a>
               @endif
               </div>
@@ -69,25 +54,12 @@
                 
               <div class="nav__btn--1"  id="myBtn">Become Vendor</div>
              <a class="nav__btn--2" href="{{ route('logout') }}"
-=======
-               <a href="{{ route('register') }}">{{ __('Register') }}</a>
-              
-              @endif
-             @else
-             <span class="font-bold uppercase">
-                Welcome {{ Auth::user()->name }}
-              </span>
-
-           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-             <a class="dropdown-item" href="{{ route('logout') }}"
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
               {{ __('Logout') }}
                </a>
 
                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-<<<<<<< HEAD
 </div>
                 @csrf
               </form>
@@ -119,16 +91,6 @@
               </div>
             </div>
           </div>
-=======
-               @csrf
-              </form>
-              </div>
-            </li>
-            @endguest
-
-       
-      </nav>
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
 
 @yield('main')
 
@@ -160,11 +122,7 @@
             name="mail"
           />
           <a
-<<<<<<< HEAD
            href="{{asset('register')}}"
-=======
-            href="users/register"
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             class="footer__btn nav__btn--2"
           >
             Sign Up
