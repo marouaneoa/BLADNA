@@ -16,18 +16,17 @@
 
     <title> @yield('title') </title>
     <link rel="icon" href="{{asset('pics/bladna.png')}}" />
+    
     <script defer src="{{asset('/assets/js/script.js')}}"></script>
     <script src="{{asset('/assets/mapdata.js')}}"></script>
     <script type="text/javascript" src="{{asset('/assets/countrymap.js')}}"></script>
-    
-
    
   </head>
   <body>
     <header class="header">
       <nav class="nav__items">
         <div class="nav__logo">
-          <img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" />
+          <a href="/home"><img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" /></a>
           <h2 class="nav__txt">بلادنا</h2>
         </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Items | Raji3li
+    Items | Bladna
 @endsection
 
 @section('content')
@@ -63,6 +63,7 @@
                     @endforeach
                     </select>
             </div>
+           
 
             
         </div>

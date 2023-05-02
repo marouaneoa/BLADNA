@@ -44,11 +44,19 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
+<<<<<<< HEAD
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           CT
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
           Creative Tim
+=======
+        <a href="#" class="simple-text logo-mini">
+          <img src="pics/bladna.png" />
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          Bladna
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -85,6 +93,7 @@
           </li>
         
           
+<<<<<<< HEAD
           <li class="{{'questions'== request()->path()?'active':''}} ">
             <a href="/questions">
               <i class="now-ui-icons design_bullet-list-67"></i>
@@ -92,6 +101,8 @@
             </a>
           </li>
           
+=======
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
         </ul>
       </div>
     </div>
@@ -99,6 +110,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
+<<<<<<< HEAD
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
               <button type="button" class="navbar-toggler">
@@ -134,6 +146,13 @@
                   </p>
                 </a>
               </li>
+=======
+         
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+           
+            <ul class="navbar-nav">
+              
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             
                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,6 +171,7 @@
                    </form>
                   </div>
               </li>
+<<<<<<< HEAD
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
@@ -160,6 +180,8 @@
                   </p>
                 </a>
               </li>
+=======
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             </ul>
           </div>
         </div>
@@ -174,6 +196,7 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
+<<<<<<< HEAD
           <nav>
             <ul>
               <li>
@@ -193,6 +216,9 @@
               </li>
             </ul>
           </nav>
+=======
+         
+>>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))

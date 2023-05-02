@@ -76,5 +76,11 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('posts.index');
     }
+    public function more()
+{
+    $posts = Post::with('pictures')->orderByDesc('created_at')->take(10)->get();
+    return view('posts.index', compact('posts'));
+}
+
 }
 

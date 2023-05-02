@@ -23,12 +23,15 @@
             Art, including pottery and weaving, is also an important part of
             Algerian culture.
           </p>
-          <a href="{{asset('register')}} " class="sec__btn nav__btn--2">
-            Sign Up
-          </a>
-          <a href="{{asset('login')}} " class="sec__btn nav__btn--1">
-            Log In
-          </a>
+          @guest
+    <a href="{{asset('register')}} " class="sec__btn nav__btn--2">
+        Sign Up
+    </a>
+    <a href="{{asset('login')}} " class="sec__btn nav__btn--1">
+        Log In
+    </a>
+          @endguest
+
         </div>
         <div class="sec__map" id="map"> </div>
       </section>
@@ -427,7 +430,7 @@
           </div>
         </div>
       </div>
-      <a  href="/posts_part/posts" class="sec__btn--3 nav__btn--1">See More</a>
+      <a  href="/posts" class="sec__btn--3 nav__btn--1">See More</a>
 </section>
 @endsection
 

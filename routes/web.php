@@ -6,9 +6,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\Dashboardcontroller;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VendorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +29,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::group(['middleware' => ['auth','admin']], function(){
+    Route::get('/dashboard',[DashboardController::class,'user_chart' ]);
+   
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
-
-
-    Route::get('/role-register',[Dashboardcontroller::class,'registered' ]);
-    Route::get('/role.edit/{id}',[Dashboardcontroller::class,'registeredit' ]);
-    Route::put('/role.register.update/{id}',[Dashboardcontroller::class,'registerupdate' ]);
-    Route::delete('/role.delete/{id}',[Dashboardcontroller::class,'registerdelete' ]);
+    Route::get('/role-register',[DashboardController::class,'registered' ]);
+    Route::get('/role.edit/{id}',[DashboardController::class,'registeredit' ]);
+    Route::put('/role.register.update/{id}',[DashboardController::class,'registerupdate' ]);
+    Route::delete('/role.delete/{id}',[DashboardController::class,'registerdelete' ]);
     
     Route::get('/regions', [RegionController::class, 'index']);
     Route::post('/save-region',[RegionController::class, 'store']);
@@ -51,7 +50,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('/categories/{id}', [CategoryController::class, 'edit']);
     Route::put('/categories-update/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories-delete/{id}',[CategoryController::class, 'delete']);
-
 
     Route::get('/items', [ItemController::class, 'index']);
     Route::post('/save-item',[ItemController::class, 'store']);
@@ -94,7 +92,7 @@ Route::get('/posts_part/posts', function () {
 Route::post('/home', [VendorController::class, 'store'])->name('users.store');
 
 
-    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
     Route::get('/posts/create', [PostController::class, 'create']);
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
