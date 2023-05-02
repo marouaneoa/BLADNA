@@ -44,19 +44,11 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-<<<<<<< HEAD
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
-        </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-=======
         <a href="#" class="simple-text logo-mini">
           <img src="pics/bladna.png" />
         </a>
         <a href="#" class="simple-text logo-normal">
           Bladna
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -93,16 +85,6 @@
           </li>
         
           
-<<<<<<< HEAD
-          <li class="{{'questions'== request()->path()?'active':''}} ">
-            <a href="/questions">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Questions</p>
-            </a>
-          </li>
-          
-=======
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
         </ul>
       </div>
     </div>
@@ -110,49 +92,11 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
-<<<<<<< HEAD
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="#pablo">Table List</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-=======
          
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
            
             <ul class="navbar-nav">
               
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             
                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,17 +115,6 @@
                    </form>
                   </div>
               </li>
-<<<<<<< HEAD
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
-=======
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
             </ul>
           </div>
         </div>
@@ -196,29 +129,7 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
-<<<<<<< HEAD
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-=======
          
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
