@@ -22,22 +22,26 @@
       
       <div class="right">
         <div class="right__head">
-          <img class="head__logo" src="/pics/bladna.png" />
+          <a href="/home"><img class="head__logo" src="/pics/bladna.png" /></a>
           <h1>CREATE A POST</h1>
         </div>
         <div class="right__all">
           <div class="input__form">
             <div class="input__box input--1">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title"
-                       class="form-control @error('title') is-invalid @enderror"
-                       value="{{ old('title') }}" required>
-                @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+              <label for="wilaya">Wilaya</label>
+              <select name="wilaya" id="wilaya" class="form-control @error('wilaya') is-invalid @enderror" required>
+                  <option value="">Select a Wilaya</option>
+                  @foreach($wilayas as $wilaya)
+                      <option value="{{ $wilaya }}">{{ $wilaya }}</option>
+                  @endforeach
+              </select>
+              @error('wilaya')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+          </div>
+          
             
             <div class="input__box input--4">
                 <label for="body" class="body">Body</label>
@@ -67,9 +71,9 @@
             </div>
             <img class="product__img" src="">
             <div class="product__info">
-              <h3 class="product__name">Post Title</h5>
+              <h3 class="product__name">Wilaya</h5>
            </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur. Id ac consectetur enim in morbi neque.</p>
+            <p class="product__desc">Name of Wilaya</p>
             
          </div>
          
@@ -104,13 +108,13 @@
               }
           });
       });
-      const titleInput = document.querySelector('#title');
+      const wilayaInput = document.querySelector('#wilaya');
       const bodyInput = document.querySelector('#body');
       const productName = document.querySelector('.product__name');
       const productDesc = document.querySelector('.product__desc');
 
-     titleInput.addEventListener('input', function() {
-    productName.textContent = titleInput.value;
+     wilayaInput.addEventListener('input', function() {
+    productName.textContent = wilayaInput.value;
     });
 
   bodyInput.addEventListener('input', function() {
