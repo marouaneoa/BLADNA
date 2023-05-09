@@ -269,8 +269,8 @@
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">{{$HomePosts[0]->user_id }}</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[0]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[0]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
               {{$HomePosts[0]->body }}
@@ -313,8 +313,8 @@
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">{{$HomePosts[1]->user_id }}</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[1]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[1]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
               {{$HomePosts[1]->body }}
@@ -358,8 +358,8 @@
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">{{$HomePosts[2]->user_id }}</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[2]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[2]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
               {{$HomePosts[2]->body }}
@@ -390,7 +390,7 @@
               <img class="sec__icon--location" src="pics/location.png" />
               <h5 class="sec__txt--location">{{ $HomePosts[3]->wilaya }}</h5>
             </div>
-            <h5 class="exp__date">{{$HomePosts[2]->created_at->format('d/m/Y') }}</h5>
+            <h5 class="exp__date">{{$HomePosts[3]->created_at->format('d/m/Y') }}</h5>
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
@@ -402,8 +402,8 @@
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">{{$HomePosts[3]->user_id }}</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[3]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[3]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
               {{$HomePosts[3]->body }}
