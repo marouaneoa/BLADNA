@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user_type')->nullable();
             $table->string('password');
             $table->string('phone_number')->nullable();
+            $table->string('pic_path')->default('default_pic.png');
             $table->rememberToken();
             $table->timestamps();
         });
