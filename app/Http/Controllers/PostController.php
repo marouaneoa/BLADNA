@@ -21,19 +21,24 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
-    }
+
+    $wilayas = [
+        'Adrar', 'Chlef', 'Laghouat', 'Oum El Bouaghi', 'Batna', 'Béjaïa', 'Biskra', 'Béchar', 'Blida', 'Bouira', 'Tamanrasset', 'Tébessa', 'Tlemcen', 'Tiaret', 'Tizi Ouzou', 'Alger', 'Djelfa', 'Jijel', 'Sétif', 'Saïda', 'Skikda', 'Sidi Bel Abbès', 'Annaba', 'Guelma', 'Constantine', 'Médéa', 'Mostaganem', 'MSila', 'Mascara', 'Ouargla', 'Oran', 'El Bayadh', 'Illizi', 'Bordj Bou Arréridj', 'Boumerdès', 'El Tarf', 'Tindouf', 'Tissemsilt', 'El Oued', 'Khenchela', 'Souk Ahras', 'Tipaza', 'Mila', 'Aïn Defla', 'Naâma', 'Aïn Témouchent', 'Ghardaïa', 'Relizane',
+    ];
+
+    return view('posts.create', compact('wilayas'));
+}
 
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'wilaya' => 'required',
             'body' => 'required',
         ]);
-    
+        
         $post = auth()->user()->posts()->create([
-            'title' => $request->title,
             'body' => $request->body,
+            'wilaya' => $request->wilaya,
         ]);
     
         if ($request->hasFile('picture')) {
@@ -62,7 +67,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
+            'wilaya' => 'required',
             'content' => 'required',
         ]);
 
@@ -78,9 +83,19 @@ class PostController extends Controller
     }
     public function more()
 {
-    $posts = Post::with('pictures')->orderByDesc('created_at')->take(10)->get();
+    $posts = Post::with('pictures')->orderByDesc('created_at')->take(4)->get();
     return view('posts.index', compact('posts'));
 }
-
+    public function self()
+    {
+    $user = Auth::user();
+    $posts = $user->posts()->with('pictures')->latest()->paginate(10);
+    return view('posts.self', compact('posts'));
+    }
+    public function homePosts()
+    {
+        $posts = Post::with('pictures')->orderByDesc('created_at')->take(4)->get();
+        return view('home')->with('HomePosts', $posts);
+    }
 }
 

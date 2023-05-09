@@ -418,7 +418,6 @@ h2 {
 .sec__rect--1 {
     width: 250px;
     height: 300px;
-    background-image: url(/pics/bejaia1.png);
     background-size: cover;
 
     z-index: 2;
@@ -439,11 +438,9 @@ h2 {
 }
 
 .sec__rect--2 {
-    background-image: url(/pics/bejaia2.png);
     background-size: cover;
 }
 .sec__rect--3 {
-    background-image: url(/pics/bejaia3.jpg);
     background-size: cover;
 }
 /* PROFILE */
