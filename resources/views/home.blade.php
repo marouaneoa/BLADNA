@@ -117,13 +117,13 @@
           <div class="exp--1">
             <div class="exp__locat">
               <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
+              <h5 class="sec__txt--location">{{ $HomePosts[0]->wilaya }}</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
+            <h5 class="exp__date">{{$HomePosts[0]->created_at->format('d/m/Y') }}</h5>
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
-            <div class="sec__rect--1"></div>
+            <div class="sec__rect--1" style="background-image: {{$HomePosts->pictures[0]}}"></div>
             <div class="rec__parent">
               <div class="sec__rect_small sec__rect--2"></div>
               <div class="sec__rect_small sec__rect--3"></div>

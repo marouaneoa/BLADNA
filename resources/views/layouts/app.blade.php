@@ -51,8 +51,9 @@
               </div>
              @else
                <div class="nav__btns">
-                
-              <div class="nav__btn--1"  id="myBtn">Become Vendor</div>
+                @if (auth()->user()->user_type!=="vendor")
+              <div class="nav__btn--1"  id="myBtn">Become Vendor</div> 
+              @endif 
              <a class="nav__btn--2" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -78,6 +79,7 @@
               
                   <form  class="modal__input" method="POST" action="{{ route('users.store') }}">
                     @csrf
+                    <div>
                     <label for="phone">Phone Number :</label><br />
 
                     <input
@@ -86,7 +88,8 @@
                       id="tel"
                       name="tel"
                     />
-                    <button type="submit" class="modal__btn">Log In</button>
+                  </div>
+                    <button type="submit" class="modal__btn">Sign Up</button>
                   </form>
               </div>
             </div>

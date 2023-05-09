@@ -111,3 +111,4 @@ Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+    Route::get('/', [PostController::class, 'homePosts'])->name('home');
