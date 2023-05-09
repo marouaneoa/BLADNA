@@ -23,17 +23,25 @@ use App\Http\Controllers\VendorController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (!auth()->check()) {
+        // If the user is not authenticated, return the welcome view
+        return redirect()->route('welcome');
+    } else {
+        // If the user is authenticated, return the home view
+        return redirect()->route('home');
+    }
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+
+
 Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('/dashboard',[DashboardController::class,'user_chart' ]);
    
-
     Route::get('/role-register',[DashboardController::class,'registered' ]);
     Route::get('/role.edit/{id}',[DashboardController::class,'registeredit' ]);
     Route::put('/role.register.update/{id}',[DashboardController::class,'registerupdate' ]);
@@ -71,6 +79,9 @@ Route::group(['middleware' => ['auth','admin']], function(){
 Route::get('/shop_part/shopping', function () {
     return view('shop_part.shopping');
 });
+
+Route::post('/add_product', [ItemController::class, 'store'])->name('items.store');
+
 // show customize your order page 
 Route::get('/shop_part/customize_order', function () {
     return view('shop_part.customize_order');

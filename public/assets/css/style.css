@@ -1,0 +1,316 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+form {
+  height: 100vh;
+  display: flex;
+
+  background-image: url("pics/backk.png");
+  background-size: cover;
+}
+
+.left {
+  margin-left: 8rem;
+  width: 300px;
+  background: #ffffff;
+  box-shadow: 14px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.card__content--1 {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.card {
+  position: relative;
+  width: 279px;
+  height: 204px;
+  border: 3px dashed #5d9c59;
+  background-size: cover;
+  background-position: center;
+}
+
+.card--2 {
+  background-image: url("pics/l1.png");
+}
+
+.card--3 {
+  background-image: url("pics/l2.png");
+}
+
+.card--4 {
+  position: relative;
+  background-image: url("pics/l3.png");
+}
+
+.import {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 52px;
+  /* identical to box height */
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 0.075em;
+  text-decoration-line: underline;
+
+  color: #000000;
+}
+
+.card__content--2 {
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 42px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: 0.075em;
+
+  color: #000000;
+}
+
+/* right */
+
+.right {
+  width: 100%;
+}
+
+.right__head {
+  height: 270px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.head__logo {
+  width: 100px;
+}
+
+.right__head h1 {
+  font-family: "Fugaz One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 88px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: 0.075em;
+
+  color: #000000;
+}
+
+.right__all {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60%;
+  margin-left: 2rem;
+
+  background: #98b4c2;
+  border-radius: 10px;
+}
+
+input {
+  width: 500px;
+  height: 70px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Jost";
+  font-size: 18px;
+  padding: 10px;
+}
+
+textarea {
+  width: 500px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Jost";
+  font-size: 18px;
+  padding: 10px;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline-color: #cf2a2a;
+  outline-style: dashed;
+  outline-width: 3px;
+}
+
+label {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 40px;
+
+  color: #000000;
+}
+
+/* preview */
+.product__img {
+  position: relative;
+  width: 482px;
+  height: 263px;
+  background-image: url("pics/big.png");
+  background-size: cover;
+}
+
+.product__heart {
+  position: absolute;
+  right: 0;
+  margin: 18px;
+  width: 70px;
+}
+
+.preview__txt {
+  width: 80%;
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.preview__txt h4 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+
+  /* #666666 - Mid Grey */
+
+  color: #666666;
+}
+
+.preview__txt h5 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 32px;
+  text-decoration-line: underline;
+
+  color: #df2e38;
+  cursor: pointer;
+}
+
+.product__info {
+  margin-top: 1.5rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product__name {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+
+  color: #000000;
+}
+
+.product__price {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+
+  /*  #000000 Black */
+
+  color: #000000;
+}
+
+.product__desc {
+  width: 80%;
+  margin-top: 4rem;
+
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+
+  /*  #000000 Black */
+
+  color: #000000;
+}
+
+.submit__btn {
+  margin-left: 60rem;
+  margin-top: 3rem;
+  cursor: pointer;
+  width: 30rem;
+
+  background: #f9efe5;
+  border: 1px solid #cf2a2a;
+  border-radius: 5px;
+
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+
+  text-align: center;
+
+  /*  #000000 Black */
+
+  color: #000000;
+  transition: all 0.5s ease;
+}
+
+.submit__btn:hover {
+  background: none;
+}
+
+input[type="file"] {
+  display: none;
+}

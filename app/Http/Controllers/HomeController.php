@@ -41,4 +41,19 @@ class HomeController extends Controller
         
         return view('home')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor)->with('p_img',$p_img);
     }
+    public function welcome()
+    {
+      
+        $items = Items::join('users', 'items.vendor_id', '=', 'users.id')
+        ->join('regions', 'items.region_id', '=', 'regions.id')
+        ->join('categories', 'items.category_id', '=', 'categories.id')
+        ->select('items.*', 'users.name as vendor', 'regions.name as region', 'categories.name as category')
+        ->get();
+        $categories = Categories::all();
+        $regions = Region::all();
+        $vendor = User::all();
+        $p_img = Item_images::all();
+        
+        return view('welcome')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor)->with('p_img',$p_img);
+    }
 }
