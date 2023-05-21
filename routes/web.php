@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\VendorController;
 
 
 /*
@@ -57,12 +59,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/items-update/{id}',[ItemController::class, 'update']);
     Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
 
-   
 
     
-    Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
-    Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
-    Route::delete('/comments/{comment}', [CommentsController::class, 'destroy'])->name('comments.destroy');
     
     
 });
@@ -93,11 +91,21 @@ Route::post('/home', [VendorController::class, 'store'])->name('users.store');
 
 
 Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
-    Route::get('/posts/create', [PostController::class, 'create']);
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-    Route::get('/', [PostController::class, 'homePosts'])->name('home');
+Route::get('/', [PostController::class, 'homePosts'])->name('home');
+Route::get('/home', [PostController::class, 'homePosts'])->name('home');
+
+
+Route::get('/posts/{post}/comments', [CommentController::class, 'show'])->name('comments.show');
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/posts/{post}/like', [LikeController::class, 'store'])->name('like.store');
+
+
+Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
