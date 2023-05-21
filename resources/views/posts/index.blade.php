@@ -12,7 +12,7 @@
                 <img src="{{ Storage::url('public/posts_images/' . $post->pictures->first()->path) }}" class="card-img-top" alt="post image">
                 @endif
                 <div class="card-body">
-                    <h5 class="card-title"><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h5>
+                    <h5 class="card-title"><a href="/posts/{{ $post->id }}">{{ $post->wilaya }}</a></h5>
                     <p class="card-text">{{ Str::limit($post->body, 100) }}</p>
                 </div>
                 <div class="card-footer">
