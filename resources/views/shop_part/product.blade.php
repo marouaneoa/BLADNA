@@ -8,33 +8,25 @@
       <div class="left__photo">
         <div class="product__photos">
           <div class="secondary__images">
-            <img
-              src="https://images.unsplash.com/photo-1649109670237-31fcefbac2b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-              data-pos="0"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1649109668548-a7f59c92585d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-              data-pos="1"
-            />
+            @foreach ($product->pictures as $in => $picture)
+              @if ($in > 0)
+                <img src="{{ Storage::url('public/products_images/' . $picture->path) }}" data-pos="{{ $in-1 }}">
+              @endif
+            @endforeach
           </div>
           <div class="main__photo">
-            <img
-              src="https://images.unsplash.com/photo-1649109670220-b8f0cb14a29b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-              data-pos="2"
-            />
+            <img src="{{ Storage::url('public/products_images/' . $product->pictures->first()->path ) }}" data-pos="{{ $product->pictures->count() }}">
           </div>
-        </div>
+        </div>        
       </div>
 
       <div class="product__desc">
-        <h1 class="product__title--1">Original Arab Traditional Dress</h1>
-        <h3 class="product__price--1">46,000.00 DZD</h3>
+        <h1 class="product__title--1">{{$product->name}}</h1>
+        <h3 class="product__price--1">{{$product->price}} DZD</h3>
         <div class="desc">
           <h5>Description :</h5>
           <p>
-            Sed interdum ut scelerisque lectus dui diam semper massa
-            scelerisque. Elit amet quis at rhoncus aliquet dui pretium ut. In ac
-            ut enim sed ultrices.
+            {{$product->description  }}
           </p>
         </div>
         <div class="product__btns">
@@ -249,86 +241,18 @@
     <section class="sec__discover">
       <h1 class="sec__head">Discover :</h1>
       <div class="sec__content">
-        <div class="item item1">
+        @foreach ($lastestItems as $index => $item)
+        <div class="product product{{$index+1}}">
           <img
             class="product__img"
-            src="https://i.pinimg.com/564x/4d/8c/7f/4d8c7fba815fe0ab86c02702bdabc8ea.jpg"
+            src="{{ Storage::url('public/products_images/' . $item->pictures->first()->path ) }}"
           />
           <div class="product__info">
-            <h3 class="product__title">Kabyle dress</h3>
-            <h3 class="product__price">4300DA</h3>
+            <h3 class="product__title">{{$item->name}}</h3>
+            <h3 class="product__price">{{$item->price}}</h3>
           </div>
         </div>
-        <div class="item item2">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109669957-d800d6b99fe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWxnZXJpYW4lMjBkcmVzc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Blue Caftan</h3>
-            <h3 class="product__price">9700DA</h3>
-          </div>
-        </div>
-        <div class="item item3">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109669063-e0bd1b293fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGFsZ2VyaWFuJTIwZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Cherry Mesh Caftan</h3>
-            <h3 class="product__price">14,300DA</h3>
-          </div>
-        </div>
-        <div class="item item4">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109670021-2e9e3adbe795?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGFsZ2VyaWFuJTIwZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Beige Caftan</h3>
-            <h3 class="product__price">14,300DA</h3>
-          </div>
-        </div>
-        <div class="item item5">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109669093-90726a95c606?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGFsZ2VyaWFuJTIwZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Light blue Goldish Caftan</h3>
-            <h3 class="product__price">19,300DA</h3>
-          </div>
-        </div>
-        <div class="item item6">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109669258-84a962e88a32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGFsZ2VyaWFuJTIwZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Royal Blue Caftan</h3>
-            <h3 class="product__price">17,300DA</h3>
-          </div>
-        </div>
-        <div class="item item7">
-          <img
-            class="product__img"
-            src="https://images.unsplash.com/photo-1649109668548-a7f59c92585d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGFsZ2VyaWFuJTIwZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          />
-          <div class="product__info">
-            <h3 class="product__title">Black Brodded Dress</h3>
-            <h3 class="product__price">8500DA</h3>
-          </div>
-        </div>
-        <div class="item item8">
-          <img
-            class="product__img"
-            src="https://i.pinimg.com/564x/a5/d4/6c/a5d46c422585a95e65a1081a3ddb43c1.jpg"
-          />
-          <div class="product__info">
-            <h3 class="product__title">V-neck Mermaid Red</h3>
-            <h3 class="product__price">11,000DA</h3>
-          </div>
-        </div>
+        @endforeach
       </div>
     </section>
 @endsection

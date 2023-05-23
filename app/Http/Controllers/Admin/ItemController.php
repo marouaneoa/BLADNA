@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Items;
+use App\Models\Item;
 use App\Models\Item_images;
 use App\Models\Categories;
 use App\Models\Region;
@@ -14,7 +14,7 @@ class ItemController extends Controller
 {
     public function index()
 {
-    $items = Items::all();
+    $items = Item::all();
 
     $categories = Categories::all();
     $regions = Region::all();
@@ -25,7 +25,7 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $items= new Items;
+        $items= new Item;
         $items->name= $request->input('name');
         $items->description= $request->input('description');
         $items->is_available= $request->input('is_available');
@@ -39,7 +39,7 @@ class ItemController extends Controller
             foreach ($request->file('images') as $file) {
                 if ($file->isValid()) {
                     $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-                    $path = $file->storeAs('public/item_images', $filename);
+                    $path = $file->storeAs('public/items_images', $filename);
                     $itemImage = new Item_images;
                     $itemImage->item_id = $items->id;
                     $itemImage->image_path = $filename; // Update the image path to use the filename instead of the storage path
@@ -54,14 +54,14 @@ class ItemController extends Controller
     public function edit($id)
     {   
 
-        $items = Items::findOrFail($id);
+        $items = Item::findOrFail($id);
         return view('admin.items.edit')->with('items',$items);
     }
 
     public function update(Request $request, $id)
     {
        
-        $items = Items::find($id);
+        $items = Item::find($id);
         $items->name= $request->get('name');
         $items->description= $request->get('description');
         $items->is_available= $request->get('is_available');
@@ -77,10 +77,23 @@ class ItemController extends Controller
 
     public function delete($id)
     {
-        $items = Items::findOrFail($id);
+        $items = Item::findOrFail($id);
         $items->delete();
 
         return redirect('/items')->with('success', 'Item has been deleted');
     }
-    
+    public function show(Item $item)
+    {
+    $latestItems = Item::with('pictures')
+        ->orderBy('created_at', 'desc')
+        ->take(8)
+        ->get();
+
+    $product = Item::with('pictures')->find($item->id);
+
+    return view('shop_part.product', compact('latestItems', 'product'));
+    }
+
+
+
 }

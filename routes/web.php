@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
     Route::get('/items', [ItemController::class, 'index']);
     Route::post('/save-item',[ItemController::class, 'store']);
-    Route::get('/items/{id}', [ItemController::class, 'edit']);
+    //Route::get('/items/{id}', [ItemController::class, 'edit']);
     Route::put('/items-update/{id}',[ItemController::class, 'update']);
     Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
 
@@ -77,9 +77,8 @@ Route::get('/shop_part/customize_order', function () {
 Route::get('/shop_part/custome_shop', function () {
     return view('shop_part.custome_shop');
 });
-Route::get('/shop_part/{product}', function () {
-    return view('shop_part.product');
-});
+Route::get('/items/{item}', [ItemController::class ,'show'])->name('shop_part.show');
+
 
 // the posts part 
 //showing the posts page 
