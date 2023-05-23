@@ -123,20 +123,19 @@
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
-            <div class="sec__rect--1" style="background-image: {{$HomePosts->pictures[0]}}"></div>
+            <div class="sec__rect--1" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[0]->pictures[0]->path) }})"></div>
             <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
+              <div class="sec__rect_small sec__rect--2" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[0]->pictures[1]->path) }})"></div>
+              <div class="sec__rect_small sec__rect--3" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[0]->pictures[2]->path) }})"></div>
             </div>
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[0]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[0]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
+              {{$HomePosts[0]->body }}
             </div>
           </div>
           <!-- BAR-->
@@ -162,26 +161,25 @@
           <div class="exp--1">
             <div class="exp__locat">
               <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
+              <h5 class="sec__txt--location">{{ $HomePosts[1]->wilaya }}</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
+            <h5 class="exp__date">{{$HomePosts[1]->created_at->format('d/m/Y') }}</h5>
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
-            <div class="sec__rect--1"></div>
+            <div class="sec__rect--1" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[1]->pictures[0]->path) }})"></div>
             <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
+              <div class="sec__rect_small sec__rect--2" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[1]->pictures[1]->path) }})"></div>
+              <div class="sec__rect_small sec__rect--3" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[1]->pictures[2]->path) }})"></div>
             </div>
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[1]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[1]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
+              {{$HomePosts[1]->body }}
             </div>
           </div>
           <!-- BAR-->
@@ -208,26 +206,25 @@
           <div class="exp--1">
             <div class="exp__locat">
               <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
+              <h5 class="sec__txt--location">{{ $HomePosts[2]->wilaya }}</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
+            <h5 class="exp__date">{{$HomePosts[2]->created_at->format('d/m/Y') }}</h5>
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
-            <div class="sec__rect--1"></div>
+            <div class="sec__rect--1" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[2]->pictures[0]->path) }})"></div>
             <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
+              <div class="sec__rect_small sec__rect--2" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[2]->pictures[1]->path) }})"></div>
+              <div class="sec__rect_small sec__rect--3" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[2]->pictures[2]->path) }})"></div>
             </div>
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[2]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[2]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
+              {{$HomePosts[2]->body }}
             </div>
           </div>
           <!-- BAR-->
@@ -253,26 +250,25 @@
           <div class="exp--1">
             <div class="exp__locat">
               <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
+              <h5 class="sec__txt--location">{{ $HomePosts[3]->wilaya }}</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
+            <h5 class="exp__date">{{$HomePosts[3]->created_at->format('d/m/Y') }}</h5>
           </div>
           <!--PHOTOS-->
           <div class="sec__rect">
-            <div class="sec__rect--1"></div>
+            <div class="sec__rect--1" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[3]->pictures[0]->path) }})"></div>
             <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
+              <div class="sec__rect_small sec__rect--2" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[3]->pictures[1]->path) }})"></div>
+              <div class="sec__rect_small sec__rect--3" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[3]->pictures[2]->path) }})"></div>
             </div>
           </div>
           <div class="sec__profiles">
             <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
+              <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $HomePosts[3]->user->pic_path) }})"></div>
+              <h5 class="sec__profile--txt1">{{$HomePosts[3]->user->name }}</h5>
             </div>
             <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
+              {{$HomePosts[3]->body }}
             </div>
           </div>
           <!-- BAR-->

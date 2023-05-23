@@ -1,6 +1,9 @@
 @extends('layouts.app')
+
 <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 @section('main')
     <div class="container">
         <div class="row justify-content-center">
@@ -22,6 +25,17 @@
                                 @endforeach
                             </div>
                         @endif
+
+                        <div class="mt-4">
+                            @if($post->isLikedByUser(auth()->id()))
+                                <button id="like-button" class="btn btn-primary">Unlike</button>
+                            @else
+                                <button id="like-button" class="btn btn-primary">Like</button>
+                            @endif
+                            <span id="like-count">{{ $post->likesCount() }}</span> likes
+                            <a href="{{ route('comments.show', $post) }}" class="btn btn-link">View Comments</a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,4 +50,39 @@
             height: auto;
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+    $('#like-button').click(function() {
+        var postId = '{{ $post->id }}';
+        var button = $(this);
+
+        $.ajax({
+            type: 'POST',
+            url: '/posts/' + postId + '/like',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                if (response.success) {
+                    var likeCount = parseInt($('#like-count').text());
+                    if (button.text() === 'Like') {
+                        // User has liked the post, so update the like count and button text
+                        likeCount++;
+                        button.text('Unlike');
+                    } else {
+                        // User has unliked the post, so update the like count and button text
+                        likeCount--;
+                        button.text('Like');
+                    }
+                    $('#like-count').text(likeCount);
+                }
+            }
+        });
+    });
+});
+
+    </script>
 @endpush

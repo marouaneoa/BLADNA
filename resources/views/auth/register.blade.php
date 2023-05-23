@@ -22,8 +22,8 @@
 
 
   <body>
- <form  method="POST" action="{{ route('register') }}"> 
-   <div class="body__left">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+      <div class="body__left">
         <div class="head">
 
             <img class="left__logo" src="pics/bladna.png" />

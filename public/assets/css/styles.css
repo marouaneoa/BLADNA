@@ -461,7 +461,6 @@ h2 {
 .sec__profile--circle {
     height: 50px;
     width: 50px;
-    background-image: url("/pics/avatar.png");
     background-size: cover;
     border-radius: 50%;
 }

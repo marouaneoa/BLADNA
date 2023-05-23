@@ -63,11 +63,25 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
+{
+    if (isset($data['image'])) {
+        $file = $data['image'];
+        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('public/posts_images', $filename);
+        $path = str_replace('public/posts_images/', '', $path);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'pic_path' => $path,
         ]);
     }
+    
+    return User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
+}
+
 }
