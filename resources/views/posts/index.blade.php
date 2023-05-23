@@ -1,23 +1,21 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/assets/css/posts.css">
 @section('main')
 <div class="container">
-    <h1 class="mb-4">Last 10 posts</h1>
+    <center><h1 class="head-title">Last Posts</h1></center>
     <div class="row">
         @foreach ($posts as $post)
-        <div class="col-md-4 mb-3">
-            <div class="card h-100">
-                @if ($post->pictures->count() > 0)
-                <img src="{{ Storage::url('public/posts_images/' . $post->pictures->first()->path) }}" class="card-img-top" alt="post image">
-                @endif
-                <div class="card-body">
-                    <h5 class="card-title"><a href="/posts/{{ $post->id }}">{{ $post->wilaya }}</a></h5>
-                    <p class="card-text">{{ Str::limit($post->body, 100) }}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated: {{ $post->updated_at->diffForHumans() }}</small>
-                </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('{{ Storage::url('public/posts_images/' . $post->pictures->first()->path) }}')">
+                
+            </div>
+            <div class="category">
+                <a href="/posts/{{ $post->id }}">{{ $post->wilaya }}</a>
+            </div>
+            <div class="heading"> {{ Str::limit($post->body, 50) }}
+                <div class="author"> By <span class="name">{{ $post->user->name }} </span>{{ $post->updated_at->diffForHumans() }} </div>
             </div>
         </div>
         @endforeach
@@ -35,5 +33,6 @@
     .card-title a:hover {
         text-decoration: none;
     }
+
 </style>
 @endpush
