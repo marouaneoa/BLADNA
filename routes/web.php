@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\ShopController;
 
 
 /*
@@ -76,11 +77,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
 });
 // the shop part 
 //showing the shop page 
-Route::get('/shop_part/shopping', function () {
+Route::get('/shopping', function () {
     return view('shop_part.shopping');
 });
 
-Route::post('/add_product', [ItemController::class, 'store'])->name('items.store');
+Route::get('/new', [ShopController::class, 'new'])->name('new');
+Route::post('/add_product', [ShopController::class, 'store'])->name('items.store');
 
 // show customize your order page 
 Route::get('/shop_part/customize_order', function () {

@@ -5,33 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bladna | Add item</title>
-    <link rel="stylesheet" href="{{ asset(' assets/css/style.css')}}">
-    <link
-    href="https://fonts.googleapis.com/css?family=Fugaz One"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Jost"
-    rel="stylesheet"
-  />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Fugaz One" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jost" rel="stylesheet" />
   </head>
   <body>
-    <form>
+    <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
+      @csrf
       <div class="left">
         <div class="cards">
           <div class="card card--1">
             <div class="card__content--1">
-              <img class="card__content__img" src="{{ asset(' assets/pics/add.png')}}" />
+              <img class="card__content__img" src="{{ asset('assets/pics/add.png')}}" />
 
-              <label for="image-input" class="import">Import</label>
-            <br>
-            <input
-              type="file"
-              name="image"
-              accept="image/png, image/jpeg"
-              id="image-input"
-              multiple
-            />
+              <label for="images" class="import">Import</label>
+              <br>
+              <input
+                type="file"
+                name="images[]"
+                accept="image/png, image/jpeg"
+                id="images"
+                multiple
+              />
             </div>
           </div>
           <div class="card card--2"></div>
@@ -44,7 +39,7 @@
 
       <div class="right">
         <div class="right__head">
-          <img class="head__logo" src="{{ asset(' assets/pics/bladna.png')}}"  />
+          <img class="head__logo" src="{{ asset('assets/pics/bladna.png')}}" />
           <h1>ADD ITEM TO THE SHOP</h1>
         </div>
         <div class="right__all">
@@ -69,14 +64,19 @@
             </div>
             <div class="input__box input--3">
               <label for="category_id">Product Category :</label><br />
-              <select
-                id="category_id"
-                name="category_id">
+              <select id="category_id" name="category_id">
                 @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                    @endforeach
-                 </select>
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+              </select>
             </div>
+            <div class="input__box input--3">
+              <label for="region_id">Product Region :</label><br />
+              <select id="region_id" name="region_id">
+                @foreach($regions as $region)
+                <option value="{{$region->id}}">{{$region->name}}</option>
+                @endforeach
+              </select>
             </div>
             <div class="input__box input--4">
               <label for="description">Product Description :</label><br />
@@ -93,8 +93,9 @@
               <h4>Preview :</h4>
               <h5>Edit Cover Image</h5>
             </div>
+           
             <div class="product__img">
-              <img class="product__heart" src="{{asset(' assets/pics/wish.png')}}">
+              <img class="product__heart" src="{{asset('assets/pics/wish.png')}}">
             </div>
             <div class="product__info">
               <h5 class="product__name">Product Name</h5>
@@ -107,5 +108,46 @@
        </div>
        <input type="submit" value="Publish" name="additem" class="submit__btn">
     </form>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const picturesGroup = document.querySelector('#pictures-group');
+          const addPictureButton = document.querySelector('#add-picture');
+          let index = 1;
+
+          addPictureButton.addEventListener('click', function (event) {
+              event.preventDefault();
+              if (index < 5) {
+                  const pictureGroup = document.createElement('div');
+                  pictureGroup.classList.add('form-group', 'picture-group');
+                  const pictureLabel = document.createElement('label');
+                  pictureLabel.setAttribute('for', `picture-${index}`);
+                  pictureLabel.textContent = `Picture ${index + 1}`;
+                  const pictureInput = document.createElement('input');
+                  pictureInput.setAttribute('type', 'file');
+                  pictureInput.setAttribute('name', `picture[]`);
+                  pictureInput.setAttribute('class', 'form-control-file');
+                  pictureInput.setAttribute('id', `picture-${index}`);
+                  pictureGroup.appendChild(pictureLabel);
+                  pictureGroup.appendChild(pictureInput);
+                  picturesGroup.appendChild(pictureGroup);
+                  index++;
+              } else {
+                  addPictureButton.setAttribute('disabled', 'disabled');
+              }
+          });
+      });
+      const wilayaInput = document.querySelector('#wilaya');
+      const bodyInput = document.querySelector('#body');
+      const productName = document.querySelector('.product__name');
+      const productDesc = document.querySelector('.product__desc');
+
+     wilayaInput.addEventListener('input', function() {
+    productName.textContent = wilayaInput.value;
+    });
+
+  bodyInput.addEventListener('input', function() {
+    productDesc.textContent = bodyInput.value;
+    });
+    </script>
   </body>
 </html>

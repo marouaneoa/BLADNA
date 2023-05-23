@@ -45,7 +45,8 @@
     <header id="header">
       <div class="header__txt">
         <h1 class="header__txt--1">Shop Traditionally !</h1>
-        <h1><a href="/shop_part/customize_order" class="header__txt--2">Customize Your Order !</a></h1>
+
+        <h1><a href="{{ route('new') }}" class="header__txt--2">Add New Product!</a></h1>
       </div>
       <div class="header__search">
         <div class="search__bar">

@@ -29,14 +29,27 @@ class ShopController extends Controller
         
         return view('home')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor)->with('p_img',$p_img);
     }
+    public function new()
+    {
+      
+        $items = Items::join('users', 'items.vendor_id', '=', 'users.id')
+        ->join('regions', 'items.region_id', '=', 'regions.id')
+        ->join('categories', 'items.category_id', '=', 'categories.id')
+        ->select('items.*', 'users.name as vendor', 'regions.name as region', 'categories.name as category')
+        ->get();
+        $categories = Categories::all();
+        $regions = Region::all();
+     
+        return view('shop_part.add_product')->with('items',$items)->with('categories',$categories)->with('regions',$regions);
+    }
     public function store(Request $request)
     {
         $items= new Items;
         $items->name= $request->input('name');
         $items->description= $request->input('description');
-        $items->is_available = 'yes';
+        $items->is_available = '1';
         $items->price= $request->input('price');
-        $items->vendor_id= $user = Auth::user();;
+        $items->vendor_id = Auth::id();
         $items->region_id= $request->input('region_id');
         $items->category_id= $request->input('category_id');
         $items->save();
@@ -54,7 +67,7 @@ class ShopController extends Controller
             }
         }
 
-        return redirect('/shopping')->with('status', 'Item has been added');
+        return redirect('shopping')->with('status', 'Item has been added');
     }
 
 }
