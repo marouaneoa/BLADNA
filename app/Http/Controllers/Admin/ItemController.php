@@ -61,9 +61,6 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
        
-        
-
-       
         $items = Items::find($id);
         $items->name= $request->get('name');
         $items->description= $request->get('description');
@@ -85,4 +82,5 @@ class ItemController extends Controller
 
         return redirect('/items')->with('success', 'Item has been deleted');
     }
+    
 }

@@ -77,6 +77,9 @@ Route::get('/shop_part/customize_order', function () {
 Route::get('/shop_part/custome_shop', function () {
     return view('shop_part.custome_shop');
 });
+Route::get('/shop_part/{product}', function () {
+    return view('shop_part.product');
+});
 
 // the posts part 
 //showing the posts page 

@@ -1,0 +1,516 @@
+@import url(https://fonts.googleapis.com/earlyaccess/scheherazade.css);
+/* NAVIGATION */
+body {
+    font-family: "Fugaz One", "Jost";
+    font-size: 22px;
+    background-image: url("/pics/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+}
+/* NAVIGATION */
+
+.nav__logo {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.nav__txt {
+    margin-top: 20px;
+    font-family: "Scheherazade";
+    font-size: 80px;
+}
+.nav__item {
+    list-style: none;
+    display: inline-block;
+    padding: 40px;
+
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 35px;
+    opacity: 0.8;
+    color: #000000;
+}
+
+.activee {
+    border-bottom: 5px solid #436d40;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.nav__item a {
+    color: #000;
+    text-decoration: none;
+    font-size: 24px;
+    transition: 0.3s ease;
+}
+.nav__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+    padding: 0 60px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.nav__items.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav__btn--2:hover {
+    background-color: #436d40;
+    color: #ffffff;
+    transition: 0.6s ease;
+}
+
+.nav__btn--1:hover {
+    color: #df2e38;
+    transition: 0.6s ease;
+}
+.nav__btns {
+    width: 400px;
+    height: 45px;
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+}
+
+.nav__btn--1 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    /* identical to box height */
+
+    text-decoration-line: underline;
+    cursor: pointer;
+    color: #5d9c59;
+
+    transition: 0.6s ease;
+}
+
+.nav__btn--2 {
+    border: 1px solid #5d9c59;
+    border-radius: 10px;
+    padding: 10px 40px;
+    text-align: center;
+    font-family: "Jost";
+    font-weight: bolder;
+    cursor: pointer;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
+    transition: 0.6s ease;
+    text-decoration: none;
+    color: black;
+}
+.sec__btn.nav__btn--1 {
+    margin-left: 40px;
+    font-size: 28px;
+}
+
+/* vitrine */
+.product__vitrine {
+    /* visibility: hidden; */
+    margin-top: 8vh;
+    padding: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product__photos {
+    width: 40%;
+    max-height: 75vh;
+
+    display: flex;
+}
+
+.product__photos img {
+    cursor: pointer;
+}
+
+.secondary__images img:hover {
+    scale: 1.08;
+    transition: all 0.25s ease-in-out;
+}
+
+.secondary__images img {
+    height: 20rem;
+    padding: 1rem 2rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.main__photo img {
+    height: 75vh;
+}
+
+.product__desc {
+    width: 60%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product__price--1 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 55px;
+
+    color: #5d9c59;
+}
+
+.product__title--1 {
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 56px;
+
+    color: #000000;
+}
+
+.desc h5 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 36px;
+
+    color: #5d9c59;
+}
+
+.desc p {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+}
+
+.product__btn {
+    border: 1px solid #5d9c59;
+    border-radius: 10px;
+
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+    cursor: pointer;
+    width: 30%;
+    padding: 1rem;
+    transition: all 0.5s ease;
+}
+
+.product__btns {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    width: 70%;
+}
+
+.wishlist {
+    width: 44px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.product__btn:hover {
+    background-color: #436d40;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+/*///////////////////////////////////////*/
+/* MAIN */
+.rect {
+    position: relative;
+    width: 65%;
+    height: 4.7rem;
+    background: #d9d9d9;
+    border-radius: 15px;
+}
+.rev {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.review__rectangles {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stars {
+    position: relative;
+    padding: 1rem;
+    white-space: nowrap;
+}
+.stars svg {
+    width: 50px;
+}
+
+.cover {
+    background: white;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.rectcover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4.7rem;
+    background: #ffc400;
+    border-radius: 15px;
+}
+
+svg {
+    fill: gold;
+}
+
+.ratings {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+}
+
+.rectcover--1 {
+    width: 70%;
+}
+.rectcover--2 {
+    width: 50%;
+}
+.rectcover--3 {
+    width: 70%;
+}
+.rectcover--4 {
+    width: 20%;
+}
+.rectcover--5 {
+    width: 30%;
+}
+
+main h3 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 20px;
+
+    color: #000000;
+}
+
+.review__slider {
+    width: 50%;
+}
+.splide__track {
+    color: #000000;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    margin: 5rem;
+}
+
+.overview__reviews {
+    width: 50%;
+}
+
+.splide__slide {
+    height: 300px;
+    background: #fff7f2;
+    border-radius: 20px;
+}
+
+.s__profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.p__img {
+    width: 6rem;
+}
+
+.s__profile h5 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #000000;
+}
+
+.content {
+    margin: 2.8rem;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s__txt h2 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+}
+
+.s__txt p {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+
+    color: #000000;
+}
+
+.review__slider h6 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+
+    /* #666666 - Mid Grey */
+
+    color: #666666;
+    margin-bottom: 3.5rem;
+}
+
+.slide__btn {
+    text-align: center;
+    margin-top: 3rem;
+
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    text-decoration-line: underline;
+
+    color: #5d9c59;
+
+    cursor: pointer;
+}
+
+.item {
+    cursor: pointer;
+    display: inline-block;
+    background: skyblue;
+    height: 250px;
+    width: 400px;
+    margin: 2em 1em;
+    @media screen and (max-width: 500px) {
+        height: 200px;
+        width: 200px;
+    }
+}
+.product__img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.product__price {
+    color: #436d40;
+    font-size: 28px;
+}
+.product__info h3 {
+    font-size: 28px;
+}
+
+.product__info {
+    margin-top: 20px;
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 23px;
+
+    color: #000000;
+}
+
+.sec__content {
+    margin-left: 7rem;
+}
+
+.product__title {
+    font-weight: 400;
+}
+
+.product__desc {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 17px;
+
+    color: #000000;
+}
+
+.product__img:hover {
+    transform: scale(1.09);
+    transition: transform 1s ease;
+}
+
+.sec__discover {
+    margin-top: 3rem;
+}
+
+.sec__head {
+    margin-left: 7rem;
+}
