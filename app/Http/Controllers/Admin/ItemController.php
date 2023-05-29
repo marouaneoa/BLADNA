@@ -6,7 +6,7 @@ use App\Models\Item;
 use App\Models\User;
 use App\Models\Region;
 use App\Models\Category;
-use App\Models\Categories;
+
 use App\Models\Item_images;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class ItemController extends Controller
 {
     $items = Item::all();
 
-    $categories = Categories::all();
+    $categories = Category::all();
     $regions = Region::all();
     $vendor = User::all();
 

@@ -50,11 +50,17 @@
       <div class="sec__cloth">
         <h3 class="sec__browse">Browse Traditional Clothing:</h3>
         <div class="itemsCloth">
-
+         
         @foreach($items as $item)
         @if($item->category == 'clothes') 
+        @if( count($items )>0)
           <div class="item item1">
-            <img class="product__img" src="https://i.pinimg.com/564x/4d/8c/7f/4d8c7fba815fe0ab86c02702bdabc8ea.jpg">
+          @foreach($p_img as $image)
+              @if($image->item_id == $item->id ) 
+              <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                  @break
+              @endif
+          @endforeach
             <div class="product__info">
               <h3 class="product__title">{{$item->name}}</h3>
               <h3 class="product__price">{{$item->price}}  DA</h3>
@@ -62,6 +68,9 @@
             
           <p class="product__desc">{{$item->description}}</p>
           </div>
+          @else
+                  <p>No items available.</p>
+              @endif  
           @endif
         @endforeach
           
@@ -71,6 +80,7 @@
 
           @foreach($items as $item)
             @if($item->category == 'food') 
+            @if( count($items )>0)
             <div class="item item1">
            
             @foreach($p_img as $image)
@@ -85,6 +95,9 @@
               </div>
               <p class="product__desc">{{$item->description}}</p>
             </div>
+            @else
+                  <p>No items available.</p>
+              @endif  
             @endif
 
           @endforeach
@@ -95,17 +108,28 @@
             <div class="itemsJewel">
                 @foreach($items as $item)
                 @if($item->category == "jewelry") 
-                  <div class="item item1"><img class="product__img" src="https://images.unsplash.com/photo-1671642883395-0ab89c3ac890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJhYiUyMGpld2Vscnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
+                @if( count($items )>0)
+                  <div class="item item1">
+                  @foreach($p_img as $image)
+                      @if($image->item_id == $item->id ) 
+                      <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                          @break
+                      @endif
+                  @endforeach
                     <div class="product__info">
                       <h3 class="product__title">{{$item->name}}</h3>
                       <h3 class="product__price">{{$item->price}}  DA</h3>
                     </div>
                     <p class="product__desc">{{$item->description}}</p>
                   </div>
+                  @else
+                      <p>No items available.</p>
+                  @endif  
                 @endif
                 @endforeach
-              </din>
-              </din>
+              </div>
+              </div>
+             
       
       <a  href="/shop_part/shopping" class="sec__btn--3 nav__btn--1">See More</a>
     </section>

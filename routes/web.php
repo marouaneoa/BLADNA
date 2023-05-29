@@ -25,6 +25,10 @@ use App\Http\Controllers\ShopController;
 |
 */
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+
 Route::get('/', function () {
     if (!auth()->check()) {
         // If the user is not authenticated, return the welcome view
@@ -37,9 +41,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
 
 Route::group(['middleware' => ['auth','admin']], function(){
@@ -69,14 +71,18 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
     
 });
-// the shop part 
-//showing the shop page 
-Route::get('/shopping', function () {
-    return view('shop_part.shopping');
-});
 
-Route::get('/new', [ShopController::class, 'new'])->name('new');
-Route::post('/add_product', [ShopController::class, 'store'])->name('items.store');
+
+
+// the shop part 
+
+//showing the shop page 
+Route::get('/shopping',[ShopController::class, 'index']);
+
+
+
+Route::get('/new_product', [ShopController::class, 'add_product'])->name('new_product');
+Route::post('/add_product', [ShopController::class, 'store'])->name('add_product');
 
 // show customize your order page 
 Route::get('/shop_part/customize_order', function () {
@@ -86,6 +92,7 @@ Route::get('/shop_part/customize_order', function () {
 Route::get('/shop_part/custome_shop', function () {
     return view('shop_part.custome_shop');
 });
+
 Route::get('/items/add-item', [ItemController::class, 'create'])->name('item.creation');
 Route::get('/items/{item}', [ItemController::class ,'show'])->name('item.show');
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');
@@ -100,7 +107,7 @@ Route::get('/posts_part/posts', function () {
 
 // become vendor section 
 // update the phone number of the vendor 
-Route::post('/home', [VendorController::class, 'store'])->name('users.store');
+Route::post('/become-vendor', [VendorController::class, 'store'])->name('users.store');
 
 
 Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
@@ -112,7 +119,6 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.upda
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 
-Route::get('/home', [PostController::class, 'homePosts'])->name('post');
 
 
 Route::get('/posts/{post}/comments', [CommentController::class, 'show'])->name('comments.show');

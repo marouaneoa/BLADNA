@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Categories;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
 {
-    $categories = Categories::all();
+    $categories = Category::all();
     return view('admin.categories')->with('categories',$categories);
 }
 
     public function store(Request $request)
     {
-        $categories= new categories;
+        $categories= new category;
         $categories->name= $request->input('name');
         $categories->save();
 
@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $categories = Categories::findOrFail($id);
+        $categories = Category::findOrFail($id);
         return view('admin.categories.edit')->with('categories',$categories);
     }
 
@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         
 
-        $categories = Categories::find($id);
+        $categories = Category::find($id);
         $categories->name = $request->get('name');
         $categories->update();
 
@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        $categories = Categories::findOrFail($id);
+        $categories = Category::findOrFail($id);
         $categories->delete();
 
         return redirect('/categories')->with('success', 'Category has been deleted');

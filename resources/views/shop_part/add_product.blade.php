@@ -8,16 +8,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Fugaz One" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Jost" rel="stylesheet" />
+    <style>
+  .card__content__img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
   </head>
   <body>
-    <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('add_product') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="left">
         <div class="cards">
           <div class="card card--1">
             <div class="card__content--1">
-              <img class="card__content__img" src="{{ asset('assets/pics/add.png')}}" />
-
               <label for="images" class="import">Import</label>
               <br>
               <input
@@ -29,17 +33,12 @@
               />
             </div>
           </div>
-          <div class="card card--2"></div>
-          <div class="card card--3"></div>
-          <div class="card card--4">
-            <h3 class="card__content--2">+ 2 Others</h3>
-          </div>
+          <br><br>
         </div>
       </div>
-
       <div class="right">
         <div class="right__head">
-          <img class="head__logo" src="{{ asset('assets/pics/bladna.png')}}" />
+          <img class="head__logo" src="{{ asset('pics/add-item/bladna.png')}}" />
           <h1>ADD ITEM TO THE SHOP</h1>
         </div>
         <div class="right__all">
@@ -89,65 +88,101 @@
             </div>
           </div>
           <div class="preview__form">
-            <div class="preview__txt">
-              <h4>Preview :</h4>
-              <h5>Edit Cover Image</h5>
-            </div>
-           
-            <div class="product__img">
-              <img class="product__heart" src="{{asset('assets/pics/wish.png')}}">
-            </div>
-            <div class="product__info">
-              <h5 class="product__name">Product Name</h5>
-              <h5 class="product__price">0.00 DA</h5>
-           </div>
-            <p class="product__desc">Lorem ipsum dolor sit amet consectetur. Id ac consectetur enim in morbi neque.</p>
-            
-         </div>
-         
-       </div>
+      <div class="preview__txt">
+        <h4>Preview :</h4>
+        <h5>Edit Cover Image</h5>
+      </div>
+      <div class="product__img">
+      <img class="product__img" src="{{ asset('pics/backk.png') }}">
+      <img class="product__heart" src="{{ asset('pics/add-item/wish.png') }}">
+     
+      </div>
+      
+      <div class="product__info">
+        <h5 class="product__name">Product Name</h5>
+        <h5 class="product__price">0.00 DA</h5>
+      </div>
+      <p class="product__desc">description</p>
+    </div>
        <input type="submit" value="Publish" name="additem" class="submit__btn">
     </form>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          const picturesGroup = document.querySelector('#pictures-group');
-          const addPictureButton = document.querySelector('#add-picture');
-          let index = 1;
-
-          addPictureButton.addEventListener('click', function (event) {
-              event.preventDefault();
-              if (index < 5) {
-                  const pictureGroup = document.createElement('div');
-                  pictureGroup.classList.add('form-group', 'picture-group');
-                  const pictureLabel = document.createElement('label');
-                  pictureLabel.setAttribute('for', `picture-${index}`);
-                  pictureLabel.textContent = `Picture ${index + 1}`;
-                  const pictureInput = document.createElement('input');
-                  pictureInput.setAttribute('type', 'file');
-                  pictureInput.setAttribute('name', `picture[]`);
-                  pictureInput.setAttribute('class', 'form-control-file');
-                  pictureInput.setAttribute('id', `picture-${index}`);
-                  pictureGroup.appendChild(pictureLabel);
-                  pictureGroup.appendChild(pictureInput);
-                  picturesGroup.appendChild(pictureGroup);
-                  index++;
-              } else {
-                  addPictureButton.setAttribute('disabled', 'disabled');
-              }
-          });
-      });
-      const wilayaInput = document.querySelector('#wilaya');
-      const bodyInput = document.querySelector('#body');
+    document.addEventListener('DOMContentLoaded', function () {
+      const productNameInput = document.querySelector('#name');
+      const productPriceInput = document.querySelector('#price');
+      const productDescriptionInput = document.querySelector('#description');
       const productName = document.querySelector('.product__name');
-      const productDesc = document.querySelector('.product__desc');
+      const productPrice = document.querySelector('.product__price');
+      const productDescription = document.querySelector('.product__desc');
 
-     wilayaInput.addEventListener('input', function() {
-    productName.textContent = wilayaInput.value;
-    });
+      productNameInput.addEventListener('input', function () {
+        productName.textContent = productNameInput.value;
+      });
 
-  bodyInput.addEventListener('input', function() {
-    productDesc.textContent = bodyInput.value;
+      productPriceInput.addEventListener('input', function () {
+        productPrice.textContent = `${productPriceInput.value} DA`;
+      });
+
+      productDescriptionInput.addEventListener('input', function () {
+        productDescription.textContent = productDescriptionInput.value;
+      });
     });
-    </script>
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const imagesInput = document.querySelector('#images');
+    const previewImage = document.querySelector('.product__img img');
+
+    imagesInput.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        previewImage.src = e.target.result;
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const imagesInput = document.querySelector('#images');
+    const cardsContainer = document.querySelector('.cards');
+
+    imagesInput.addEventListener('change', function (event) {
+      const files = event.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const card = document.createElement('div');
+          card.classList.add('card', `card--${i + 2}`);
+          card.style.marginBottom = '10px'; // Adjust the margin as needed
+
+          const cardContent = document.createElement('div');
+          cardContent.classList.add('card__content--1');
+
+          const image = document.createElement('img');
+          image.classList.add('card__content__img');
+          image.src = e.target.result;
+
+          cardContent.appendChild(image);
+          card.appendChild(cardContent);
+          cardsContainer.appendChild(card);
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+    });
+  });
+</script>
+
   </body>
 </html>

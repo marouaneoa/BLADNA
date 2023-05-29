@@ -92,10 +92,6 @@ class PostController extends Controller
     $posts = $user->posts()->with('pictures')->latest()->paginate(10);
     return view('posts.self', compact('posts'));
     }
-    public function homePosts()
-    {
-        $posts = Post::with('pictures')->orderByDesc('created_at')->take(4)->get();
-        return view('home')->with('HomePosts', $posts);
-    }
+
 }
 
