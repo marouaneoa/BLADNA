@@ -14,6 +14,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function wilaya(): BelongsTo
+{
+    return $this->belongsTo(Region::class, 'wilaya');
+}
     public function scopeLatest($query, $limit = 10)
     {
     return $query->orderBy('created_at', 'desc')->limit($limit);

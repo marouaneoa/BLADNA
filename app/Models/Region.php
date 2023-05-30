@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
+
+    public function posts(): HasMany
+{
+    return $this->hasMany(Post::class, 'wilaya');
+}
 }

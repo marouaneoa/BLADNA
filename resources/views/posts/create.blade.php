@@ -33,7 +33,7 @@
               <select name="wilaya" id="wilaya" class="form-control @error('wilaya') is-invalid @enderror" required>
                   <option value="">Select a Wilaya</option>
                   @foreach($wilayas as $wilaya)
-                      <option value="{{ $wilaya }}">{{ $wilaya }}</option>
+                      <option value="{{ $wilaya->id }}">{{ $wilaya->name }}</option>
                   @endforeach
               </select>
               @error('wilaya')
@@ -119,9 +119,11 @@
       const productName = document.querySelector('.product__name');
       const productDesc = document.querySelector('.product__desc');
 
-     wilayaInput.addEventListener('input', function() {
-    productName.textContent = wilayaInput.value;
-    });
+      wilayaInput.addEventListener('input', function() {
+  const selectedOption = wilayaInput.options[wilayaInput.selectedIndex];
+  productName.textContent = selectedOption.text;
+});
+
 
   bodyInput.addEventListener('input', function() {
     productDesc.textContent = bodyInput.value;
