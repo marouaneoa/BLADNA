@@ -1,327 +1,50 @@
 @extends('layouts.app')
 
-@section('title')
-       BLADNA | Discover Algeria !
-@endsection
+@section('title', 'Stockily | Warehouse Manager')
 
-@section ('main')
-      <section class="section--1">
-        <div class="sec__testimonials">
-
-        @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-          <h2 class="sec__title" id="main__title">Marhaba !</h2>
-          <p class="sec__testimonials--1">
-            Algeria has a rich and diverse culture that has been shaped by its
-            history and various cultural influences.<br /><br />
-            The official language is Arabic, while Berber is also recognized as
-            a national language, and French is widely spoken. <br />Islam is the
-            dominant religion, and family plays a crucial role in Algerian
-            culture, with hospitality being highly valued. Algerian cuisine is
-            diverse, with couscous being the traditional dish.<br /><br />
-            Other popular foods include tagines, grilled meats, and various
-            types of bread. Algerian music is a blend of Arabic, Berber, and
-            French styles, and traditional forms such as chaabi and rai are
-            popular.<br />
-            Art, including pottery and weaving, is also an important part of
-            Algerian culture.
-          </p>
-              <a href="{{asset('register')}} " class="sec__btn nav__btn--2">
-            Sign Up
-          </a>
-          <a href="{{asset('login')}} " class="sec__btn nav__btn--1">
-            Log In
-          </a>
-
-        </div>
-        <div class="sec__map" id="map"> </div>
-      </section>
-      <img class="sec__icon--chevron" src="{{asset('/pics/chevron.png')}}" id="chevron" />
-    </header>
-
-    
-    <section class="section--2" id="section--2">
-      <h2 class="sec__title--3">Shop With Us !</h2>
-      
-      <div class="sec__cloth">
-        <h3 class="sec__browse">Browse Traditional Clothing:</h3>
-        <div class="itemsCloth">
-         
-        @foreach($items as $item)
-        @if($item->category == 'clothes') 
-        @if( count($items )>0)
-          <div class="item item1">
-          @foreach($p_img as $image)
-              @if($image->item_id == $item->id ) 
-              <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
-                  @break
-              @endif
-          @endforeach
-            <div class="product__info">
-              <h3 class="product__title">{{$item->name}}</h3>
-              <h3 class="product__price">{{$item->price}}  DA</h3>
-            </div>
-            
-          <p class="product__desc">{{$item->description}}</p>
-          </div>
-          @else
-                  <p>No items available.</p>
-              @endif  
-          @endif
-        @endforeach
-          
-        <div class="sec__dish">
-          <h3 class="sec__browse">Browse Traditional Dishes:</h3>
-          <div class="itemsDish">
-
-          @foreach($items as $item)
-            @if($item->category == 'food') 
-            @if( count($items )>0)
-            <div class="item item1">
-           
-            @foreach($p_img as $image)
-              @if($image->item_id == $item->id ) 
-              <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
-                  @break
-              @endif
-          @endforeach
-                <div class="product__info">
-                <h3 class="product__title">{{$item->name}}</h3>
-                <h3 class="product__price">{{$item->price}}  DA</h3>
-              </div>
-              <p class="product__desc">{{$item->description}}</p>
-            </div>
-            @else
-                  <p>No items available.</p>
-              @endif  
-            @endif
-
-          @endforeach
-          
-        </div>
-          <div class="sec__jewelry">
-            <h3 class="sec__browse">Browse Traditional Jewelry:</h3>
-            <div class="itemsJewel">
-                @foreach($items as $item)
-                @if($item->category == "jewelry") 
-                @if( count($items )>0)
-                  <div class="item item1">
-                  @foreach($p_img as $image)
-                      @if($image->item_id == $item->id ) 
-                      <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
-                          @break
-                      @endif
-                  @endforeach
-                    <div class="product__info">
-                      <h3 class="product__title">{{$item->name}}</h3>
-                      <h3 class="product__price">{{$item->price}}  DA</h3>
-                    </div>
-                    <p class="product__desc">{{$item->description}}</p>
-                  </div>
-                  @else
-                      <p>No items available.</p>
-                  @endif  
-                @endif
-                @endforeach
-              </div>
-              </div>
-             
-      
-      <a  href="/shop_part/shopping" class="sec__btn--3 nav__btn--1">See More</a>
-    </section>
-    <section class="section--3" id="section--3">
-      <h2 class="sec__title--3">Explore Our Country !</h2>
-      <div class="sec__util">
-        <img class="sec__icon--explore" src="pics/Filter.png" />
-        <h3 class="sec__txt--1">Sorted by : Recent</h3>
-      </div>
-
-      <div class="sec__explore--1">
-        <div class="sec__rect--main--red">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-        <!-- ///////////////////////////-->
-
-        <div class="sec__rect--main">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec__explore--2">
-        <div class="sec__rect--main">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-        <!-- ///////////////////////////-->
-
-        <div class="sec__rect--main--red">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a  href="/posts_part/posts" class="sec__btn--3 nav__btn--1">See More</a>
+@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stokili | Warehouse Manager</title>
+</head>
+<body>
+    <!-- the _hero includes the head of the landing page!-->
+    @include('partials._hero')
+<section class="section__one">
+  <div class="one__left">
+    <h1>
+      Manage Your Goods as a <span>Boss</span>, Be Aware Of Your
+      <span>Stock !</span>
+    </h1>
+    <p>
+      Our Inventory Management System is designed to streamline your inventory operations, reduce stockouts and overstocks, improve order accuracy, and ultimately boost your business efficiency and profitability. 
+      <br />
+      <br /><br />
+  Try our system today and experience the benefits of effective inventory management!SO 
+      <br /><br />
+    </p>
+  </div>
+  <div class="one__right">
+    <div class="photo__container photo__container--1" src="{{asset('Pic/pic1.png')}}" ></div>
+    <div class="photo__container photo__container--2" src="{{asset('Pic/pic2.png')}}" ></div>
+  </div>
 </section>
-@endsection
+<img class="one__img" src="{{asset('Pic/cartona.png')}}" />
+<!-- Section 2 stats + slider-->
+    <!--categries !-->
+    @include('partials._categories')
+    <!--end of categiries !-->
+    <!--slider!-->
+    @include('partials._slider')
+    <!--end of slider!-->
+    <!--search!-->
+    @include('partials._search')
+    <!--end of search!-->
+</body>
+</html>
 
+@endsection
