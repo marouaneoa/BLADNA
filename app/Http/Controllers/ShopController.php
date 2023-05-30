@@ -85,6 +85,11 @@ class ShopController extends Controller
         
     }
 
+    public function product(){
+        
+        return  view('shop_part.product'); 
+    }
+
    
 
 }

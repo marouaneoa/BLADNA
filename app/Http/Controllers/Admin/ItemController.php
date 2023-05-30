@@ -23,6 +23,8 @@ class ItemController extends Controller
 
     return view('admin.items')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor);
 }
+
+
 public function create()
 {
     $categories = Category::all();
@@ -30,6 +32,8 @@ public function create()
 
     return view('shop_part.add-item', compact('categories', 'regions'));
 }
+
+
 public function store(Request $request)
     {
         // Validation
@@ -72,12 +76,17 @@ public function store(Request $request)
         return redirect()->back()->with('success', 'Item added successfully');
     }
 
+
+
     public function edit($id)
     {   
 
         $items = Item::findOrFail($id);
         return view('admin.items.edit')->with('items',$items);
     }
+
+
+
 
     public function update(Request $request, $id)
     {
@@ -96,6 +105,9 @@ public function store(Request $request)
         return redirect('/items')->with('status', 'Item has been updated');
     }
 
+
+
+
     public function delete($id)
     {
         $items = Item::findOrFail($id);
@@ -103,6 +115,9 @@ public function store(Request $request)
 
         return redirect('/items')->with('success', 'Item has been deleted');
     }
+
+
+    
     public function show(Item $item)
     {
     $latestItems = Item::with('pictures')
