@@ -64,16 +64,12 @@
           </div>
         </div>
       </div> 
-
-      @if( count($categories )>0)
-        @foreach($categories as $category)
-
       <div class="sec__cloth">
-        <h3>Browse Traditional {{$category->name}} :</h3>
+        <h3>Browse Traditional {{$category->name}}:</h3>
         <div class="sec__content">
         @if( count($items )>0)
         @foreach($items as $item)
-                @if($item->category_id == $category->id) 
+                @if($item->category_id == $category->id ) 
                 
           <div class="item item1">
           @foreach($p_img as $image)
@@ -96,15 +92,8 @@
                 @endif
           </div>
           </div>
-          <div class="main__buttons">
-            <a href="{{ route('more', ['category_id' => $category->id]) }}" class="main_btn--1">See More</a>
-          </div>
-
-      @endforeach
-                @else
-                  <p>No Category available.</p>
-                @endif
-    
+      
+      
     </header>
 
     <footer class="footer" id="footer">

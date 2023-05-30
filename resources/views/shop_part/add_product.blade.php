@@ -22,7 +22,7 @@
         <div class="cards">
           <div class="card card--1">
             <div class="card__content--1">
-              <label for="images" class="import">Import</label>
+            <label for="images" class="import">Import</label>
               <br>
               <input
                 type="file"
@@ -30,6 +30,7 @@
                 accept="image/png, image/jpeg"
                 id="images"
                 multiple
+                required
               />
             </div>
           </div>
@@ -90,7 +91,7 @@
           <div class="preview__form">
       <div class="preview__txt">
         <h4>Preview :</h4>
-        <h5>Edit Cover Image</h5>
+       
       </div>
       <div class="product__img">
       <img class="product__img" src="{{ asset('pics/backk.png') }}">
@@ -102,7 +103,7 @@
         <h5 class="product__name">Product Name</h5>
         <h5 class="product__price">0.00 DA</h5>
       </div>
-      <p class="product__desc">description</p>
+    
     </div>
        <input type="submit" value="Publish" name="additem" class="submit__btn">
     </form>

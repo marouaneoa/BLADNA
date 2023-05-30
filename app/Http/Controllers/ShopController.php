@@ -20,8 +20,7 @@ class ShopController extends Controller
       
         $items = Item::join('users', 'items.vendor_id', '=', 'users.id')
         ->join('regions', 'items.region_id', '=', 'regions.id')
-        ->join('categories', 'items.category_id', '=', 'categories.id')
-        ->select('items.*', 'users.name as vendor', 'regions.name as region', 'categories.name as category')
+        ->select('items.*', 'users.name as vendor', 'regions.name as region')
         ->get();
         $categories = Category::all();
         $regions = Region::all();
@@ -35,15 +34,11 @@ class ShopController extends Controller
     public function add_product()
     {
       
-        $items = Item::join('users', 'items.vendor_id', '=', 'users.id')
-        ->join('regions', 'items.region_id', '=', 'regions.id')
-        ->join('categories', 'items.category_id', '=', 'categories.id')
-        ->select('items.*', 'users.name as vendor', 'regions.name as region', 'categories.name as category')
-        ->get();
+      
         $categories = Category::all();
         $regions = Region::all();
      
-        return view('shop_part.add_product')->with('items',$items)->with('categories',$categories)->with('regions',$regions);
+        return view('shop_part.add_product')->with('categories',$categories)->with('regions',$regions);
     }
     public function store(Request $request)
     {
@@ -64,14 +59,32 @@ class ShopController extends Controller
                     $path = $file->storeAs('public/item_images', $filename);
                     $itemImage = new Item_images;
                     $itemImage->item_id = $items->id;
-                    $itemImage->image_path = asset('storage/item_images/' . $filename);
+                    $itemImage->image_path = $filename;
                     $itemImage->save();
                 }
             }
         }
-        
 
         return redirect('shopping')->with('status', 'Item has been added');
     }
+    public function more($id){
+
+        $category = Category::find($id);
+
+        $items = Item::join('users', 'items.vendor_id', '=', 'users.id')
+            ->join('regions', 'items.region_id', '=', 'regions.id')
+            ->join('categories', 'items.category_id', '=', 'categories.id')
+            ->where('items.category_id', $category->id) // Filter by category ID
+            ->select('items.*', 'users.name as vendor', 'regions.name as region', 'categories.name as category')
+            ->get();
+       
+        $p_img = Item_images::all();
+        
+        return view('shop_part.more')->with('items',$items)->with('category',$category)->with('p_img',$p_img);
+
+        
+    }
+
+   
 
 }

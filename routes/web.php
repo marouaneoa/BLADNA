@@ -69,6 +69,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
     //Route::get('/items/{id}', [ItemController::class, 'edit']);
     Route::put('/items-update/{id}',[ItemController::class, 'update']);
     Route::delete('/items-delete/{id}',[ItemController::class, 'delete']);
+ 
+
     
 });
 
@@ -80,9 +82,22 @@ Route::group(['middleware' => ['auth','admin']], function(){
 Route::get('/shopping',[ShopController::class, 'index']);
 
 
-
+//add new product 
 Route::get('/new_product', [ShopController::class, 'add_product'])->name('new_product');
 Route::post('/add_product', [ShopController::class, 'store'])->name('add_product');
+
+
+
+//the see more pages for each category
+Route::get('/more/{category_id}', [ShopController::class, 'more'])->name('more');
+
+
+//view more details about the product page
+Route::get('/product', [ShopController::class, 'product'])->name('product');
+
+
+
+
 
 // show customize your order page 
 Route::get('/shop_part/customize_order', function () {
@@ -93,9 +108,6 @@ Route::get('/shop_part/custome_shop', function () {
     return view('shop_part.custome_shop');
 });
 
-Route::get('/items/add-item', [ItemController::class, 'create'])->name('item.creation');
-Route::get('/items/{item}', [ItemController::class ,'show'])->name('item.show');
-Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 
 
 // the posts part 
