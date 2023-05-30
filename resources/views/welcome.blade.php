@@ -139,189 +139,75 @@
         <img class="sec__icon--explore" src="pics/Filter.png" />
         <h3 class="sec__txt--1">Sorted by : Recent</h3>
       </div>
+      
+
+      
+
 
       <div class="sec__explore--1">
-        <div class="sec__rect--main--red">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-        <!-- ///////////////////////////-->
+    @foreach($posts as $index => $post)
+    
+        @if($index % 2 == 0)
+            <div class="sec__rect--main--red">
+        @else
+            <div class="sec__rect--main">
+        @endif
 
-        <div class="sec__rect--main">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
+            <!-- upper date + location-->
+            <div class="exp--1">
+                <div class="exp__locat">
+                    <img class="sec__icon--location" src="pics/location.png" />
+                    <a class="sec__txt--location" href="/posts/{{ $post->id }}">{{ $post->wilaya }}</a>
+                </div>
+                <h5 class="exp__date">{{ $post->created_at->format('d/m/Y') }} {{ $post->updated_at->diffForHumans() }}</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+            <!--PHOTOS-->
+            <div class="sec__rect">
+                @if ($post->pictures->count() >= 3)
+                <div class="sec__rect--1" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[0]->path) }})"></div>
+                <div class="rec__parent">
+                    <div class="sec__rect_small sec__rect--2" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[1]->path) }})"></div>
+                    <div class="sec__rect_small sec__rect--3" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[2]->path) }})"></div>
+                </div>
+                
+                @elseif ($post->pictures->count() == 2)
+                <div class="rec__parenthalf">
+                    <div class="sec__rect_half half--1" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[0]->path) }})"></div>
+                    <div class="sec__rect_half half--2" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[1]->path) }})"></div>
+                </div>
+                @elseif ($post->pictures->count() == 1)
+                <div class="sec__rect--big" style="background-image: url({{ Storage::url('public/posts_images/' . $post->pictures[0]->path) }})"></div>
+                @endif
 
-      <div class="sec__explore--2">
-        <div class="sec__rect--main">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
             </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
+            <div class="sec__profiles">
+                <div class="sec__profile">
+                    <div class="sec__profile--circle" style="background-image: url({{ Storage::url('public/posts_images/' . $post->user->pic_path) }})"></div>
+                    <h5 class="sec__profile--txt1">{{ $post->user->name }}</h5>
+                </div>
+                <div class="sec__profile--txt2">
+                    {{ $post->body }}
+                </div>
             </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
+            <!-- BAR-->
+            <div class="sec__bar">
+                <div class="sec__bar__icon">
+                    <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
+                    <h5 class="sec__bar__icon--txt1">12</h5>
+                </div>
+                <div class="sec__bar__icon">
+                    <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
+                    <h5 class="sec__bar__icon--txt1">60</h5>
+                </div>
+                
             </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-        <!-- ///////////////////////////-->
+    </div>
+    
+    @endforeach
+    </div>
 
-        <div class="sec__rect--main--red">
-          <!-- upper date + location-->
-          <div class="exp--1">
-            <div class="exp__locat">
-              <img class="sec__icon--location" src="pics/location.png" />
-              <h5 class="sec__txt--location">Bejaia</h5>
-            </div>
-            <h5 class="exp__date">22/02/2023</h5>
-          </div>
-          <!--PHOTOS-->
-          <div class="sec__rect">
-            <div class="sec__rect--1"></div>
-            <div class="rec__parent">
-              <div class="sec__rect_small sec__rect--2"></div>
-              <div class="sec__rect_small sec__rect--3"></div>
-            </div>
-          </div>
-          <div class="sec__profiles">
-            <div class="sec__profile">
-              <div class="sec__profile--circle"></div>
-              <h5 class="sec__profile--txt1">@Younes_Boudaoud</h5>
-            </div>
-            <div class="sec__profile--txt2">
-              Belle journee a la wilaya de bejaia ! 38C vraiment bien pour se<br />
-              ballader dans les rues de cette ville !
-            </div>
-          </div>
-          <!-- BAR-->
-          <div class="sec__bar">
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-              <h5 class="sec__bar__icon--txt1">12</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
-              <h5 class="sec__bar__icon--txt1">60</h5>
-            </div>
-            <div class="sec__bar__icon">
-              <img class="sec__bar__icon--1" src="pics/saved.png" />
-              <h5 class="sec__bar__icon--txt1">32</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a  href="/posts_part/posts" class="sec__btn--3 nav__btn--1">See More</a>
+      
+      <a  href="/posts" class="sec__btn--3 nav__btn--1">See More</a>
 </section>
 @endsection
 

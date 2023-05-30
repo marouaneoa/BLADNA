@@ -1,5 +1,4 @@
 * {
-<<<<<<< HEAD
     margin: 0;
     padding: 0;
     box-sizing: inherit;
@@ -256,221 +255,219 @@ form label {
     line-height: 35px;
 
     color: #000000;
-=======
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font-family: "Jost", "Fugaz One";
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: "Jost", "Fugaz One";
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .split {
-  width: 50%;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
 .sec__sign {
-  right: 0;
-  background-image: url(/pics/backk.png);
-  background-size: cover;
+    right: 0;
+    background-image: url(/pics/backk.png);
+    background-size: cover;
 }
 
 .sec__photo {
-  display: flex;
-  justify-content: center;
-  left: 0;
-  background-image: url(/pics/signup2.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: opacity 1.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    background-image: url(/pics/signup2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 1.5s ease-in-out;
 }
 
 .sec__txt--1 {
-  margin-top: 20px;
-  width: 400px;
-  height: 250px;
-  font-family: "Fugaz One";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 56px;
-  line-height: 82px;
-  text-align: center;
+    margin-top: 20px;
+    width: 400px;
+    height: 250px;
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 82px;
+    text-align: center;
 
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .txt__overlay {
-  color: #c7e8ca;
-  font-family: "Fugaz One";
+    color: #c7e8ca;
+    font-family: "Fugaz One";
 }
 
 .sec__right {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
 
 .sec__logo {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .sec__txt--2 {
-  font-family: "Fugaz One";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 58px;
-  line-height: 85px;
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 85px;
 
-  color: #000000;
+    color: #000000;
 }
 
 .sec__form {
-  display: flex;
-  flex-direction: column;
-  /* animation: fade 250ms ease-in-out forwards; */
+    display: flex;
+    flex-direction: column;
+    /* animation: fade 250ms ease-in-out forwards; */
 }
 .sec__form label {
-  font-family: "Jost";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 40px;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
 
-  color: #000000;
+    color: #000000;
 }
 .sec__form input {
-  width: 500px;
-  border-radius: 10px;
-  border: none;
-  font-family: "Jost";
-  font-size: 20px;
-  padding: 10px;
+    width: 500px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Jost";
+    font-size: 20px;
+    padding: 10px;
 }
 
 .sec__form input:focus {
-  outline-color: #c7e8ca;
-  outline-style: dashed;
-  outline-width: 3px;
+    outline-color: #c7e8ca;
+    outline-style: dashed;
+    outline-width: 3px;
 }
 
 .sec__btn,
 .end__btn {
-  border: 1px solid #5d9c59;
-  border-radius: 10px;
-  padding: 10px 40px;
-  text-align: center;
-  font-family: "Jost";
-  font-weight: bolder;
-  cursor: pointer;
-  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
-  transition: 0.6s ease;
-  font-size: 20px;
-  width: 250px;
-  background-color: #5d9c59;
-  color: #ffffff;
+    border: 1px solid #5d9c59;
+    border-radius: 10px;
+    padding: 10px 40px;
+    text-align: center;
+    font-family: "Jost";
+    font-weight: bolder;
+    cursor: pointer;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
+    transition: 0.6s ease;
+    font-size: 20px;
+    width: 250px;
+    background-color: #5d9c59;
+    color: #ffffff;
 }
 .end__btn {
-  font-size: 50px;
-  width: fit-content;
-  text-decoration: none;
+    font-size: 50px;
+    width: fit-content;
+    text-decoration: none;
 }
 .sec__btn:hover,
 .end__btn:hover {
-  color: #000000;
-  background-color: transparent;
+    color: #000000;
+    background-color: transparent;
 }
 
 .txt__overlay--1 {
-  text-decoration: underline;
-  color: #df2e38;
-  cursor: pointer;
-  transition: all 0.6s ease;
+    text-decoration: underline;
+    color: #df2e38;
+    cursor: pointer;
+    transition: all 0.6s ease;
 }
 
 .txt__overlay--1:hover {
-  color: #5d9c59;
-  transition: 0.6s ease;
+    color: #5d9c59;
+    transition: 0.6s ease;
 }
 
 .sec__footer {
-  display: flex;
-  align-items: center;
-  gap: 50%;
-  margin-left: 60px;
-  margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 50%;
+    margin-left: 60px;
+    margin-top: 50px;
 }
 /* phase 2 */
 input[type="file"] {
-  display: none;
+    display: none;
 }
 .form__photo__label {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .sec__form__photo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #sec__photo__container {
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  background-color: lightgray;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: lightgray;
 }
 /* end phase 3 */
 .sec__end {
-  display: flex;
-  flex-direction: column;
-  gap: 250px;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 250px;
+    align-items: center;
+    justify-content: center;
 }
 
 .end__txt {
-  font-family: "Fugaz One";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 58px;
-  line-height: 85px;
+    font-family: "Fugaz One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 85px;
 
-  color: #5d9c59;
+    color: #5d9c59;
 }
 
 /*animations*/
 @keyframes slide {
-  0% {
-    transform: translateX(200%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .form--2 {
-  animation: slide 250ms 125ms ease-in-out both;
+    animation: slide 250ms 125ms ease-in-out both;
 }
 .sec__end {
-  animation: slide 250ms 125ms ease-in-out both;
+    animation: slide 250ms 125ms ease-in-out both;
 }
 .hidden {
-  display: none;
->>>>>>> c3a24439031e5aa6c66163ffb21b2f2718cfd350
+    display: none;
 }

@@ -1,66 +1,318 @@
-.card {
-    width: 400px;
-    height: 500px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    background: white;
-    padding: .4em;
-    border-radius: 6px;
-  }
-  
-  .card-image {
-    background-color: rgb(236, 236, 236);
+.sec__explore--1 {
+    grid-gap: 5px;
+}
+
+/* posts */
+/* SECTION 3 */
+
+.exp__locat {
+    margin: 30px 25px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.exp--1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 60%;
-    border-radius: 6px 6px 0 0;
-  }
-  
-  .card-image:hover {
-    transform: scale(0.98);
-  }
-  
-  .category {
-    text-transform: uppercase;
-    font-size: 0.7em;
-    font-weight: 600;
-    color: rgb(63, 121, 230);
-    padding: 10px 7px 0;
-  }
-  
-  .category:hover {
-    cursor: pointer;
-  }
-  
-  .heading {
-    font-weight: 600;
-    color: rgb(88, 87, 87);
-    padding: 7px;
-  }
-  
-  .heading:hover {
-    cursor: pointer;
-  }
-  
-  .author {
-    color: gray;
+}
+/* green version*/
+.sec__rect--main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 60px 50px;
+    width: 750px;
+    height: 650px;
+    background: #f2faf2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+a:hover {
+    color: #436d40;
+    transition: all 0.5s ease;
+}
+
+/* red version*/
+.sec__rect--main--red {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 60px 50px;
+    width: 750px;
+    height: 650px;
+    background: #fff7f2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.sec__explore--1 {
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px; /* Adjust the gap between children as desired */
+}
+
+.sec__btn--3 {
+    position: absolute;
+    left: 47%;
+    right: 53%;
+    width: 100px;
+    height: fit-content;
+}
+
+.exp__date {
+    font-family: "Jost";
+    font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    padding-top: 20px;
-  }
-  
-  .name {
-    font-weight: 600;
-  }
-  
-  .name:hover {
-    cursor: pointer;
-  }
-  .head-title
-  {
+    font-size: 18px;
+    line-height: 23px;
+    margin-left: -40px;
+    margin-right: 20px;
+    color: #000000;
+
+    opacity: 0.5;
+}
+
+.sec__txt--location {
     font-family: "Fugaz One";
     font-style: normal;
     font-weight: 400;
-    font-size: 58px;
-    line-height: 85px;
+    font-size: 18px;
+    line-height: 26px;
+    /* identical to box height */
+
     color: #000000;
-  }
+}
+/* RECTANGLES */
+.sec__rect {
+    display: flex;
+    gap: 25px;
+    width: 700px;
+    height: 300px;
+    z-index: -1;
+}
+.sec__rect--1 {
+    width: 250px;
+    height: 300px;
+    background-size: cover;
+
+    z-index: 2;
+}
+.rec__parent {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 300px;
+    gap: 10px;
+    z-index: -1;
+}
+
+.rec__parenthalf {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+    background-size: cover;
+}
+
+.sec__rect_half {
+    width: 50%;
+    z-index: 300;
+    background-size: cover;
+}
+
+.sec__rect_small {
+    width: 450px;
+    height: 200px;
+    z-index: 300;
+    background-size: cover;
+}
+
+.sec__rect--big {
+    width: 100%;
+    height: 300px;
+    z-index: 300;
+    background-size: cover;
+}
+/* PROFILE */
+
+.sec__profiles {
+    width: 700px;
+    display: inline-block;
+    margin-top: 0.9em;
+}
+
+.sec__profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.2em;
+}
+
+.sec__profile--circle {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.sec__profile--txt1 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 29px;
+
+    color: #000000;
+}
+
+.sec__profile--txt2 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    margin-left: 20px;
+
+    color: #000000;
+}
+
+/* BAR */
+.sec__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 160px;
+    margin-top: 25px;
+    width: 590px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sec__bar__icon img {
+    max-width: 22px;
+    max-height: 22px;
+}
+
+.sec__bar__icon h5 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 17px;
+
+    color: #000000;
+}
+
+.sec__bar__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sec__icon--location {
+    height: 40px;
+}
+
+.head-title {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 52px;
+    margin-top: 2rem;
+    color: #000000;
+}
+
+/*special button */
+
+.button {
+    position: relative;
+    background-color: transparent;
+    color: #f2faf2;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mother {
+    margin-right: 10rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button::before {
+    content: "Create Post";
+    font-family: "Jost";
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(135deg, #f2faf2, #afc2af);
+    transform: translate(0%, 90%);
+    z-index: 99;
+    position: relative;
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button::after {
+    content: "+";
+    font-family: "Jost";
+    color: #000000;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a0bea0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-origin: top;
+    transform: translate(0%, -100%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button:hover::before {
+    transform: translate(0%, 0%);
+}
+
+.button:hover::after {
+    transform: translate(0%, -200%);
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active {
+    scale: 0.95;
+}

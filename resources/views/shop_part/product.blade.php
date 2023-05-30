@@ -245,7 +245,7 @@
         <div class="product product{{$index+1}}">
           <img
             class="product__img"
-            src="{{ Storage::url('public/products_images/' . $item->pictures->first()->path ) }}"
+            src="{{ //Storage::url('public/products_images/' . $item->pictures->first()->path ) }}"
           />
           <div class="product__info">
             <h3 class="product__title">{{$item->name}}</h3>

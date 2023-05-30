@@ -1,0 +1,165 @@
+.con-like {
+    --red: rgb(255, 50, 100);
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.con-like .like {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.con-like .checkmark {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con-like .outline,
+.con-like .filled {
+    fill: var(--red);
+    position: absolute;
+}
+
+.con-like .filled {
+    animation: kfr-filled 0.5s;
+    display: none;
+}
+
+.con-like .celebrate {
+    position: absolute;
+    animation: kfr-celebrate 0.5s;
+    animation-fill-mode: forwards;
+    display: none;
+}
+
+.con-like .poly {
+    stroke: var(--red);
+    fill: var(--red);
+}
+
+.con-like .like:checked ~ .checkmark .filled {
+    display: block;
+}
+
+.con-like .like:checked ~ .checkmark .celebrate {
+    display: block;
+}
+
+@keyframes kfr-filled {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes kfr-celebrate {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+        display: none;
+    }
+}
+
+.swiper {
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.posts__all {
+    display: flex;
+    height: 933px;
+}
+
+.sidebar {
+    width: 30%;
+    height: 100%;
+    /* background-color: #fff; */
+    padding: 4rem;
+}
+
+.post__title {
+    color: #5d9c59;
+}
+
+.post__body {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 52px;
+
+    color: #000000;
+}
+
+/* BAR */
+.sec__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 160px;
+    margin-top: 25px;
+    width: 90%;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sec__bar__icon img {
+    max-width: 22px;
+    max-height: 22px;
+}
+
+.sec__bar__icon h5 {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 17px;
+
+    color: #000000;
+}
+
+.sec__bar__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

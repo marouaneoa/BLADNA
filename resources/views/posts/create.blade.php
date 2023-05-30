@@ -26,9 +26,10 @@
           <h1>CREATE A POST</h1>
         </div>
         <div class="right__all">
+
           <div class="input__form">
             <div class="input__box input--1">
-              <label for="wilaya">Wilaya</label>
+              <label for="wilaya">Wilaya</label><br>
               <select name="wilaya" id="wilaya" class="form-control @error('wilaya') is-invalid @enderror" required>
                   <option value="">Select a Wilaya</option>
                   @foreach($wilayas as $wilaya)
@@ -54,22 +55,26 @@
                     </span>
                 @enderror
             </div>
+
             <div id="pictures-group">
               <div class="form-group picture-group">
-                  <label for="picture">Picture</label>
-                  <input type="file" name="picture[]" class="form-control-file" multiple>
+                  <h3>Picture</h3>
+                  <label class="input-images" for="pic"><img src="/assets/img/addimg.png">
+                  <input id="pic" type="file" name="picture[]" class="form-control-file" multiple></label>
               </div>
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
               <button type="button" id="add-picture" class="btn btn-primary">Add Picture</button>
+          </div> -->
+
           </div>
-          </div>
+        
           <div class="preview__form">
             <div class="preview__txt">
               <h2>Preview :</h4>
             </div>
-            <img class="product__img" src="">
+            <img class="product__img" src="/assets/img/generic.png">
             <div class="product__info">
               <h3 class="product__name">Wilaya</h5>
            </div>
@@ -78,6 +83,7 @@
          </div>
          
        </div>
+
        <input type="submit" value="Publish" name="additem" class="submit__btn">
     </form>
     <script>

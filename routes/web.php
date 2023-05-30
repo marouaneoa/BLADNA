@@ -98,11 +98,7 @@ Route::get('/items/{item}', [ItemController::class ,'show'])->name('item.show');
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 
 
-// the posts part 
-//showing the posts page 
-Route::get('/posts_part/posts', function () {
-    return view('posts_part.posts');
-});
+
 
 
 // become vendor section 
@@ -111,7 +107,7 @@ Route::post('/become-vendor', [VendorController::class, 'store'])->name('users.s
 
 
 Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
-Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');

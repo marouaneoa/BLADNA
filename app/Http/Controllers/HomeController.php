@@ -57,7 +57,8 @@ class HomeController extends Controller
         $regions = Region::all();
         $vendor = User::all();
         $p_img = Item_images::all();
-        
-        return view('welcome')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor)->with('p_img',$p_img);
+        $posts = Post::with('pictures')->orderByDesc('created_at')->take(4)->get();
+
+        return view('welcome')->with('items',$items)->with('categories',$categories)->with('regions',$regions)->with('vendor',$vendor)->with('p_img',$p_img)->with('posts', $posts);
     }
 }
