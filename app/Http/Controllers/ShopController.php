@@ -40,6 +40,7 @@ class ShopController extends Controller
      
         return view('shop_part.add_product')->with('categories',$categories)->with('regions',$regions);
     }
+    
     public function store(Request $request)
     {
         $items= new Item;
@@ -85,10 +86,17 @@ class ShopController extends Controller
         
     }
 
-    public function product(){
-        
-        return  view('shop_part.product'); 
+    public function product($id)
+    {
+        $product = Item::findOrFail($id);
+        $img = Item_images::where('Item_images.item_id', $product->id);
+        $items = Item::where('id', '!=', $id)->latest()->take(6)->get();
+        $p_img = Item_images::all();
+            
+        return  view('shop_part.product')->with('product', $product)->with('img', $img)->with('items', $items)->with('p_img', $p_img);
     }
+    
+   
 
    
 

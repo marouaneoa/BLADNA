@@ -1,26 +1,17 @@
 @extends('layouts.app')
-    <script src="/assets/splide-4.1.3/dist/js/splide.min.js"></script>
-    <link rel="stylesheet" href="/assets/splide-4.1.3/dist/css/splide.min.css" />
-    <link rel="stylesheet" href="/assets/css/product_details.css" />
-    <script defer src="/assets/js/product_details.js"></script>
+  
+
 @section('main')
     <header class="product__vitrine" id="header">
-      <div class="left__photo">
-        <div class="product__photos">
-          <div class="secondary__images">
-            @foreach ($product->pictures as $in => $picture)
-              @if ($in > 0)
-                <img src="{{ Storage::url('public/products_images/' . $picture->path) }}" data-pos="{{ $in-1 }}">
-              @endif
-            @endforeach
-          </div>
-          <div class="main__photo">
-            <img src="{{ Storage::url('public/products_images/' . $product->pictures->first()->path ) }}" data-pos="{{ $product->pictures->count() }}">
-          </div>
-        </div>        
-      </div>
-
+      
+    @foreach($p_img as $image)
+        
+        <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $product->name }}">
+          @break
+      @endforeach
       <div class="product__desc">
+
+     
         <h1 class="product__title--1">{{$product->name}}</h1>
         <h3 class="product__price--1">{{$product->price}} DZD</h3>
         <div class="desc">
@@ -38,20 +29,13 @@
     <main>
       <div class="overview__reviews">
         <h1>Reviews</h1>
-        <!-- <div class="reveiw__stars">
-          <div class="star star--1"></div>
-          <div class="star star--2"></div>
-          <div class="star star--3"></div>
-          <div class="star star--4"></div>
-          <div class="star star--5"></div>
-        </div> -->
-
+ 
         <div class="stars">
           <svg viewBox="0 0 576 512" width="100" title="star">
             <path
               d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
             /></svg
-<svg viewBox="0 0 576 512" width="100" title="star">
+          ><svg viewBox="0 0 576 512" width="100" title="star">
             <path
               d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
             /></svg
@@ -235,25 +219,32 @@
             </ul>
           </div>
         </section>
-        <div class="slide__btn">See All</div>
       </div>
     </main>
     <section class="sec__discover">
       <h1 class="sec__head">Discover :</h1>
       <div class="sec__content">
-        @foreach ($lastestItems as $index => $item)
-        <div class="product product{{$index+1}}">
-          <img
-            class="product__img"
-            src="{{ Storage::url('public/products_images/' . $item->pictures->first()->path ) }}"
-          />
+        @foreach ($items as $item)
+       
+        @foreach($p_img as $image)
+          @if($image->item_id == $item->id) 
+              <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+              @break
+          @endif
+           @endforeach
           <div class="product__info">
             <h3 class="product__title">{{$item->name}}</h3>
             <h3 class="product__price">{{$item->price}}</h3>
           </div>
-        </div>
+     
         @endforeach
       </div>
     </section>
+    <script src="/assets/splide-4.1.3/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="/assets/splide-4.1.3/dist/css/splide.min.css" />
+    <link rel="stylesheet" href="/assets/css/product_details.css" />
+    <script defer src="/assets/js/product_details.js"></script>
 @endsection
+
+
 

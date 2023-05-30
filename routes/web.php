@@ -93,12 +93,8 @@ Route::get('/more/{category_id}', [ShopController::class, 'more'])->name('more')
 
 
 //view more details about the product page
-Route::get('/product', [ShopController::class, 'product'])->name('product');
+Route::get('/product/{id}', [ShopController::class ,'product'])->name('product');
 
-
-Route::get('/items/add-item', [ItemController::class, 'create'])->name('item.creation');
-Route::get('/items/{item}', [ItemController::class ,'show'])->name('item.show');
-Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 
 
 // show customize your order page 
