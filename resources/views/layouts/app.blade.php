@@ -27,7 +27,7 @@
     <header class="header">
       <nav class="nav__items">
         <div class="nav__logo">
-          <a href="/home"><img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" /></a>
+          <a href="/welcome"><img class="nav__logo" src="{{asset('/pics/bladna.png')}}" alt="Bladna Logo" /></a>
           <h2 class="nav__txt">بلادنا</h2>
         </div>
 

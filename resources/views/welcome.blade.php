@@ -157,9 +157,9 @@
             <div class="exp--1">
                 <div class="exp__locat">
                     <img class="sec__icon--location" src="pics/location.png" />
-                    <a class="sec__txt--location" href="/posts/{{ $post->id }}">{{ $post->wilaya }}</a>
+                    <a class="sec__txt--location" href="/posts/{{ $post->id }}">{{ $post->thewilaya->name }}</a>
                 </div>
-                <h5 class="exp__date">{{ $post->created_at->format('d/m/Y') }} {{ $post->updated_at->diffForHumans() }}</h5>
+                <h5 class="exp__date"> {{ $post->updated_at->diffForHumans() }}</h5>
             </div>
             <!--PHOTOS-->
             <div class="sec__rect">
@@ -193,7 +193,7 @@
             <div class="sec__bar">
                 <div class="sec__bar__icon">
                     <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-                    <h5 class="sec__bar__icon--txt1">12</h5>
+                    <h5 class="sec__bar__icon--txt1">{{$post->likesCount()}}</h5>
                 </div>
                 <div class="sec__bar__icon">
                     <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />

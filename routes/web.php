@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\ShopController;
 
 
 /*
@@ -104,7 +105,10 @@ Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 // become vendor section 
 // update the phone number of the vendor 
 Route::post('/become-vendor', [VendorController::class, 'store'])->name('users.store');
-
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index')->middleware('auth');
+Route::get('/users/{user}', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/posts',[PostController::class, 'more'])->name('posts.more');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

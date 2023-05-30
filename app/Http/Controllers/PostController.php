@@ -15,10 +15,12 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Post::with('thewilaya', 'comments')->findOrFail($id);
         return view('posts.show', compact('post'));
     }
+    
 
     public function create()
     {
@@ -34,7 +36,8 @@ class PostController extends Controller
             'wilaya' => 'required',
             'body' => 'required',
         ]);
-        
+    
+    
         $post = auth()->user()->posts()->create([
             'body' => $request->body,
             'wilaya' => $request->wilaya,

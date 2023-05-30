@@ -28,8 +28,8 @@
      </div>
     
      <div class="sidebar">
-     <h2 class="post__title">{{ $post->wilaya }}</h2>
-     <p class="post__body">{{ $post->body }}</p>
+        <h2 class="post__title">{{ $post->thewilaya->name }}</h2>
+        <p class="post__body">{{ $post->body }}</p>
      <div class="sec__bar">
                 <div class="sec__bar__icon">
                 @if($post->isLikedByUser(auth()->id()))
