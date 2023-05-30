@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -95,16 +96,11 @@ Route::get('/more/{category_id}', [ShopController::class, 'more'])->name('more')
 //view more details about the product page
 Route::get('/product/{id}', [ShopController::class ,'product'])->name('product');
 
+Route::get('/add_to_cart/{id}', [CartController::class, 'add'])->name('add_to_cart');
 
 
-// show customize your order page 
-Route::get('/shop_part/customize_order', function () {
-    return view('shop_part.customize_order');
-});
-// show custome shop here page 
-Route::get('/shop_part/custome_shop', function () {
-    return view('shop_part.custome_shop');
-});
+
+
 
 
 

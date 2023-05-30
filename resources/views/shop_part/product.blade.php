@@ -21,7 +21,7 @@
           </p>
         </div>
         <div class="product__btns">
-          <a class="product__btn">ADD TO CART</a>
+        <a class="product__btn" href="{{ route('add_to_cart', ['id' => $product->id]) }}">ADD TO CART</a>
           <img class="wishlist" src="/pics/heart.png" />
         </div>
       </div>

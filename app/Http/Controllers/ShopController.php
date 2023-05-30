@@ -85,6 +85,7 @@ class ShopController extends Controller
 
         
     }
+    
 
     public function product($id)
     {

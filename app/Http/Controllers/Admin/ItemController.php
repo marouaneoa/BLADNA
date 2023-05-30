@@ -118,17 +118,17 @@ public function store(Request $request)
 
 
     
-    public function show(Item $item)
-    {
-    $latestItems = Item::with('pictures')
-        ->orderBy('created_at', 'desc')
-        ->take(8)
-        ->get();
+    // public function show(Item $item)
+    // {
+    // $latestItems = Item::with('pictures')
+    //     ->orderBy('created_at', 'desc')
+    //     ->take(8)
+    //     ->get();
 
-    $product = Item::with('pictures')->find($item->id);
+    // $product = Item::with('pictures')->find($item->id);
 
-    return view('shop_part.product', compact('latestItems', 'product'));
-    }
+    // return view('shop_part.product', compact('latestItems', 'product'));
+    // }
 
 
 

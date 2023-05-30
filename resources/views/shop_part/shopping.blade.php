@@ -19,8 +19,41 @@
       href="https://unpkg.com/css.gg@2.0.0/icons/css/carousel.css"
       rel="stylesheet"
     />
+    <style>
+    .alert {
+        position: relative;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+    }
+
+    .close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        opacity: 0.5;
+    }
+
+    .close:hover {
+        color: #000;
+        opacity: 0.75;
+    }
+</style>
   </head>
   <body>
+ 
+
     <nav class="nav__items">
       <div class="nav__logo">
         <img class="nav__logo" src="/pics/bladna.png" alt="Bladna Logo" />
@@ -40,6 +73,15 @@
           <a href="{{ route('register') }}"  class="nav__btn--2">{{ __('Sign Up') }}</a>
       </div>
     </nav>
+    @if(session('success'))
+    <div id="success-message" class="alert alert-success">
+        <span>{{ session('success') }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
     
 
     <header id="header">
@@ -154,5 +196,11 @@
           <h3 class="copyright__txt">Logo Copyright &#169; 2023 Abdennour Achour. All rights reserved </h3>
         </div>
       </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.alert').fadeIn().delay(5000).fadeOut('slow');
+    });
+</script>
   </body>
 </html>
