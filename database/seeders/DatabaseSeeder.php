@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +11,15 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
+    {
+        $this->seedRegions();
+        $this->seedCategories();
+    }
+
+    /**
+     * Seed the regions table.
+     */
+    private function seedRegions(): void
     {
         $wilayas = [
             'Adrar',
@@ -63,10 +71,31 @@ class DatabaseSeeder extends Seeder
             'Ghardaïa',
             'Relizane',
         ];
-    
+
         foreach ($wilayas as $wilaya) {
             DB::table('regions')->insert([
                 'name' => $wilaya,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+    }
+
+    /**
+     * Seed the categories table.
+     */
+    private function seedCategories(): void
+    {
+        $categories = [
+            'Clothes',
+            'Food',
+            'Jewelry',
+            'Decoration',
+        ];
+
+        foreach ($categories as $category) {
+            DB::table('categories')->insert([
+                'name' => $category,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

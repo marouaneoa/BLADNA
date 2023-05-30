@@ -69,7 +69,7 @@
         <div class="sec__content">
         @if( count($items )>0)
         @foreach($items as $item)
-                @if($item->category == "clothes") 
+                @if($item->category == "Clothes") 
                 
           <div class="item item1">
           @foreach($p_img as $image)
@@ -106,7 +106,7 @@
         <div class="sec__content">
         @if( count($items )>0)
         @foreach($items as $item)
-        @if($item->category == "food") 
+        @if($item->category == "Food") 
           <div class="item item1">
           @foreach($p_img as $image)
                       @if($image->item_id == $item->id ) 
@@ -143,7 +143,7 @@
         <div class="sec__content">
         @if( count($items )>0)
         @foreach($items as $item)
-        @if($item->category == "jewerly")
+        @if($item->category == "Jewerly")
           <div class="item item1">
           @foreach($p_img as $image)
                       @if($image->item_id == $item->id ) 
@@ -179,7 +179,7 @@
         <h3>Browse Traditional Decoration:</h3>
         @if( count($items )>0)
         @foreach($items as $item)
-        @if($item->category == "decoration")
+        @if($item->category == "Decoration")
         <div class="sec__content"> <div class="item item1">
         @foreach($p_img as $image)
                       @if($image->item_id == $item->id ) 
