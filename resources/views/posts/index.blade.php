@@ -11,6 +11,9 @@
     @endauth
     <center><h1 class="head-title">Last Posts</h1></center>
 
+    @if($posts->isEmpty())
+<center><p style="margin-top: 5rem">No posts found</p></center>
+    @else
     <div class="sec__explore--1">
     @foreach($posts as $index => $post)
     
@@ -26,7 +29,7 @@
                     <img class="sec__icon--location" src="pics/location.png" />
                     <a class="sec__txt--location" href="/posts/{{ $post->id }}">{{ $post->thewilaya->name }}</a>
                 </div>
-                <h5 class="exp__date">{{ $post->created_at->format('d/m/Y') }} {{ $post->updated_at->diffForHumans() }}</h5>
+                <h5 class="exp__date"> {{ $post->updated_at->diffForHumans() }}</h5>
             </div>
             <!--PHOTOS-->
             <div class="sec__rect">
@@ -60,7 +63,7 @@
             <div class="sec__bar">
                 <div class="sec__bar__icon">
                     <img class="sec__bar__icon--1" src="pics/filled_heart.png" />
-                    <h5 class="sec__bar__icon--txt1">12</h5>
+                    <h5 class="sec__bar__icon--txt1">{{$post->likesCount()}}</h5>
                 </div>
                 <div class="sec__bar__icon">
                     <img class="sec__bar__icon--1" src="pics/Bubblechat.png" />
@@ -71,5 +74,6 @@
     </div>
     
     @endforeach
+    @endif
     </div>
 @endsection

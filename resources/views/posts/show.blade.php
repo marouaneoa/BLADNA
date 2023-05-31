@@ -20,6 +20,8 @@
        @foreach($post->pictures as $picture)
          <div class="swiper-slide"><img src="{{ Storage::url('public/posts_images/' . $picture->path) }}" alt="post image" class="img-fluid rounded"></div>
        @endforeach
+       @else
+        <p class="swiper-slide">No pictures available for this post</p>
        @endif
        </div>
        <div class="swiper-button-next"></div>
