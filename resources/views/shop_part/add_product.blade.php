@@ -13,11 +13,27 @@
     max-width: 100%;
     max-height: 100%;
   }
+  .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 18px; /* Increase the font size */
+    }
+
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
 </style>
+
   </head>
   <body>
-    <form action="{{ route('add_product') }}" method="POST" enctype="multipart/form-data">
+
+    <form action="{{ route('add_product') }}" method="POST"  enctype="multipart/form-data">
       @csrf
+      <div id="errorMessages"></div>
       <div class="left">
         <div class="cards">
           <div class="card card--1">
@@ -41,6 +57,21 @@
         <div class="right__head">
           <img class="head__logo" src="{{ asset('pics/add-item/bladna.png')}}" />
           <h1>ADD ITEM TO THE SHOP</h1>
+          @if($errors->any())
+              <div class="alert alert-danger" id="error-message">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+              <script>
+                  setTimeout(function() {
+                      document.getElementById('error-message').style.display = 'none';
+                  }, 5000); // 5000 milliseconds = 5 seconds
+              </script>
+          @endif
+         
         </div>
         <div class="right__all">
           <div class="input__form">
@@ -88,6 +119,7 @@
                 class="text__field"></textarea>
             </div>
           </div>
+         
           <div class="preview__form">
       <div class="preview__txt">
         <h4>Preview :</h4>
@@ -184,6 +216,8 @@
     });
   });
 </script>
+
+
 
   </body>
 </html>

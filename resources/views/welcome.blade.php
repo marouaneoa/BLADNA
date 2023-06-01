@@ -65,8 +65,7 @@
               <h3 class="product__title">{{$item->name}}</h3>
               <h3 class="product__price">{{$item->price}}  DA</h3>
             </div>
-            
-          <p class="product__desc">{{$item->description}}</p>
+          
           </div>
           @else
                   <p>No items available.</p>

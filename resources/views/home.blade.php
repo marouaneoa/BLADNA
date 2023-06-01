@@ -52,8 +52,9 @@
           <div class="item item1">
           @foreach($p_img as $image)
               @if($image->item_id == $item->id ) 
-              <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
-                  @break
+              <a href="{{ route('product', ['id' => $item->id]) }}">
+                        <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                    </a>
               @endif
           @endforeach
             <div class="product__info">
@@ -80,7 +81,9 @@
            
             @foreach($p_img as $image)
               @if($image->item_id == $item->id ) 
-              <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+              <a href="{{ route('product', ['id' => $item->id]) }}">
+                        <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                    </a>
                   @break
               @endif
           @endforeach
@@ -107,7 +110,9 @@
                   <div class="item item1">
                   @foreach($p_img as $image)
                       @if($image->item_id == $item->id ) 
-                      <img class="product__img" src="{{ Storage::url('public/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                      <a href="{{ route('product', ['id' => $item->id]) }}">
+                        <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+                    </a>
                           @break
                       @endif
                   @endforeach
@@ -115,7 +120,6 @@
                       <h3 class="product__title">{{$item->name}}</h3>
                       <h3 class="product__price">{{$item->price}}  DA</h3>
                     </div>
-                    <p class="product__desc">{{$item->description}}</p>
                   </div>
                   @else
                       <p>No items available.</p>

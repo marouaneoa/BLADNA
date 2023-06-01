@@ -80,7 +80,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 // the shop part 
 
 //showing the shop page 
-Route::get('/shopping',[ShopController::class, 'index']);
+Route::get('/shopping',[ShopController::class, 'index'])->name('shopping');
 
 
 //add new product 
@@ -97,6 +97,8 @@ Route::get('/more/{category_id}', [ShopController::class, 'more'])->name('more')
 Route::get('/product/{id}', [ShopController::class ,'product'])->name('product');
 
 Route::get('/add_to_cart/{id}', [CartController::class, 'add'])->name('add_to_cart');
+Route::get('/mycart', [CartController::class, 'index'])->name('mycart');
+Route::get('/delete_itemcart/{id}', [CartController::class, 'delete'])->name('delete_itemcart');
 
 
 

@@ -769,3 +769,15 @@ form label {
     justify-content: center;
     gap: 1.5rem;
 }
+.cart-icon {
+    color: green;
+    font-size: 3rem; /* Adjust the value as needed */
+    /* Add any other desired styles for the cart icon */
+}
+
+/* Example media query for responsiveness */
+@media (max-width: 768px) {
+    .cart-icon {
+        font-size: 1.5rem; /* Adjust the value for smaller screens */
+    }
+}

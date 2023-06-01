@@ -1,10 +1,15 @@
 @extends('layouts.app')
   
 
+@section('title')
+       BLADNA | Product !
+@endsection
+
+
 @section('main')
     <header class="product__vitrine" id="header">
       
-    @foreach($p_img as $image)
+    @foreach($img as $image)
         
         <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $product->name }}">
           @break
@@ -14,6 +19,7 @@
      
         <h1 class="product__title--1">{{$product->name}}</h1>
         <h3 class="product__price--1">{{$product->price}} DZD</h3>
+        <h3 > Contact Us : {{$vendor->phone_number}} </h3>
         <div class="desc">
           <h5>Description :</h5>
           <p>
@@ -96,130 +102,7 @@
           </div>
         </div>
       </div>
-      <div class="review__slider">
-        <section class="splide" aria-labelledby="carousel-heading">
-          <h2 id="carousel-heading">Top Reviews:</h2>
-          <h6>Swipe to see more !</h6>
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="content">
-                  <div class="s__profile">
-                    <img class="p__img" src="/pics/p.png" />
-                    <h5>@Bahdja_mesers</h5>
-                  </div>
-                  <div class="s__txt">
-                    <h2>Produit excellent mais long a arriver :</h2>
-                    <p>
-                      Sed interdum ut scelerisque lectus dui diam semper massa
-                      scelerisque. Elit amet quis at rhoncus aliquet dui pretium
-                      ut. In ac ut enim sed ultrices.
-                    </p>
-                  </div>
-                  <div class="stars--2">
-                    <h2>&star; &star; &star; &star; &star;</h2>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
+    
     </main>
     <section class="sec__discover">
       <h1 class="sec__head">Discover :</h1>
@@ -228,7 +111,9 @@
        
         @foreach($p_img as $image)
           @if($image->item_id == $item->id) 
+          <a href="{{ route('product', ['id' => $item->id]) }}">
               <img class="product__img" src="{{ asset('storage/item_images/' . $image->image_path) }}" alt="{{ $item->name }}">
+          </a>
               @break
           @endif
            @endforeach

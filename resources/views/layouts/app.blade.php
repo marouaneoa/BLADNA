@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css?family=Jost"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <title> @yield('title') </title>
     <link rel="icon" href="{{asset('pics/bladna.png')}}" />
@@ -32,8 +33,8 @@
         </div>
 
         <ul class="nav__links">
-          <li class="nav__item"><a class="activee" href="#">Home</a></li>
-          <li class="nav__item"><a href="#section--2">Shop</a></li>
+          <li class="nav__item"><a class="activee" href="{{ route('home') }}">Home</a></li>
+          <li class="nav__item"><a href="{{ route('shopping') }}">Shop</a></li>
           <li class="nav__item"><a href="#section--3">Explore</a></li>
           <li class="nav__item"><a href="#footer">Contact Us</a></li>
         </ul>
@@ -42,6 +43,8 @@
            @if (Route::has('login'))
             
               <a class="nav__btn--1" href="{{ route('login') }}">{{ __('Log In') }}</a>
+
+             
             
           @endif
 
@@ -52,8 +55,15 @@
               </div>
              @else
                <div class="nav__btns">
+               @auth
+                  <a href="{{ route('mycart') }}" class="cart-icon">
+                      <i class="fa fa-shopping-cart"></i>
+                  </a>
+              @endauth
                 @if (auth()->user()->user_type!=="vendor")
-              <div class="nav__btn--1"  id="myBtn">Become Vendor</div> 
+               
+              <div class="nav__btn--1"  id="myBtn" >Become Vendor</div> 
+
               @endif 
              <a class="nav__btn--2" href="{{ route('logout') }}"
               onclick="event.preventDefault();
